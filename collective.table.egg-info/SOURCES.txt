@@ -1,0 +1,12 @@
+README.txt
+setup.py
+collective/__init__.py
+collective.table.egg-info/PKG-INFO
+collective.table.egg-info/SOURCES.txt
+collective.table.egg-info/dependency_links.txt
+collective.table.egg-info/entry_points.txt
+collective.table.egg-info/namespace_packages.txt
+collective.table.egg-info/not-zip-safe
+collective.table.egg-info/requires.txt
+collective.table.egg-info/top_level.txt
+collective/table/__init__.py
