@@ -7,7 +7,7 @@
     i18n_domain="collective.table"
     >
 
-<five:registerPackage package="." />
+<five:registerPackage package="." initialize=".initialize" />
 
 <i18n:registerTranslations directory="locales" />
 

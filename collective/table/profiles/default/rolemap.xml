@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rolemap>
+  <permissions>
+    <permission name="collective.table: Add Table" acquire="False">
+      <role name="Manager" />
+      <role name="Contributor" />
+      <role name="Owner" />
+    </permission>
+  </permissions>
+</rolemap>

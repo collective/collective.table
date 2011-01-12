@@ -1,15 +1,27 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 msgid ""
 msgstr ""
-"Project-Id-Version: collective.table\n"
-"POT-Creation-Date: 2011-01-11 16:11+0000\n"
-"PO-Revision-Date: 2011-01-11 16:11+0000\n"
-"Last-Translator: Jarn AS <info@jarn.com>\n"
-"Language-Team: Jarn AS <info@jarn.com>\n"
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2011-01-11 17:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
+"Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: en\n"
 "Language-Name: English\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: DOMAIN\n"
+"Domain: collective.table\n"
+
+#: collective.table/collective/table/profiles/default/types/Table.xml
+msgid "A configurable data table."
+msgstr ""
+
+#: collective.table/collective/table/profiles/default/types/Table.xml
+msgid "Table"
+msgstr ""
+
