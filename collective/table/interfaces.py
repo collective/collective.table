@@ -4,6 +4,9 @@ from zope import interface, schema
 class ITable(interface.Interface):
     """A data table content type."""
 
+    def getSource(self):
+        """Return the currently selected data source"""
+
 
 class ISource(interface.Interface):
     """Base source adapter interface.

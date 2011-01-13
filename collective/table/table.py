@@ -1,4 +1,5 @@
 from zope import component, interface, schema
+from AccessControl import ClassSecurityInfo
 from Products.Archetypes import atapi
 from Products.ATContentTypes.content import base
 from Products.ATContentTypes.content import schemata
@@ -9,7 +10,7 @@ from . import MessageFactory as _
 
 
 TableSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
-    atapi.StringField('source',
+    atapi.StringField('sourceName',
         default=u'local',
         required=True,
         vocabulary_factory='available-table-storages',
@@ -21,7 +22,7 @@ TableSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
                 default=u'The source for the data shown in the table.'),
             modes=('edit',),
             condition='python:'
-                'len(object.getField("source").Vocabulary(object)) > 1',
+                'len(object.getField("sourceName").Vocabulary(object)) > 1',
         ),
     ),
 ))
@@ -42,6 +43,12 @@ def availableTableStorages(context):
 class Table(base.ATCTContent):
     interface.implements(ITable)
     schema = TableSchema
+    security = ClassSecurityInfo()
+
+    security.declarePrivate('getSource')
+    def getSource(self):
+        sourcename = self.getSourceName()
+        return component.getAdapter(self, ISource, sourcename)
 
 
 base.registerATCT(Table, PROJECTNAME)
