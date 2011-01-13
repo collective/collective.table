@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="collective.table"
+    >
+
+<!-- Simple ZODB storage -->
+<adapter name="local" factory=".local.LocalSource" />
+
+</configure>
