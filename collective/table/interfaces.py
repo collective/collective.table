@@ -26,6 +26,16 @@ class ISource(interface.Interface):
         description=u'The name of the view used to configure this source',
         required=True)
 
+    def listColumns():
+        """Return a sequence of dicts specifying the columns
+
+        Each dict must have an id and a title column; ids must be ASCII, but
+        titles are unicode strings.
+
+        The columns will be displayed in the order they are listed.
+
+        """
+
 
 class ILocalSource(ISource):
     pass
