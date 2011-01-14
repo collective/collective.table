@@ -1,0 +1,8 @@
+Ideas for future features:
+
+* New types beyond string:
+  * Numeric (float, integer, constraints)
+  * URLs
+  * Date/time
+* SQL integration
+* Search (DataTables supports a search box)
