@@ -4,5 +4,7 @@ Ideas for future features:
   * Numeric (float, integer, constraints)
   * URLs
   * Date/time
+  * Boolean (checkboxes)
+  * Vocabularies? (selects)
 * SQL integration
 * Search (DataTables supports a search box)
