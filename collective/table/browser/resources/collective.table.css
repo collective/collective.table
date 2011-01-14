@@ -1,0 +1,249 @@
+.dataTables_wrapper {
+	position: relative;
+	min-height: 302px;
+	clear: both;
+	_height: 302px;
+	zoom: 1; /* Feeling sorry for IE */
+}
+
+.dataTables_processing {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 250px;
+	height: 30px;
+	margin-left: -125px;
+	margin-top: -15px;
+	padding: 14px 0 2px 0;
+	border: 1px solid #ddd;
+	text-align: center;
+	color: #999;
+	font-size: 14px;
+	background-color: white;
+}
+
+.dataTables_length {
+	width: 40%;
+	float: left;
+}
+
+.dataTables_filter {
+	width: 50%;
+	float: right;
+	text-align: right;
+}
+
+.dataTables_info {
+	width: 60%;
+	float: left;
+}
+
+.dataTables_paginate {
+	width: 44px;
+	* width: 50px;
+	float: right;
+	text-align: right;
+}
+
+/* Pagination nested */
+.paginate_disabled_previous, .paginate_enabled_previous, .paginate_disabled_next, .paginate_enabled_next {
+	height: 19px;
+	width: 19px;
+	margin-left: 3px;
+	float: left;
+}
+
+.paginate_disabled_previous {
+	background-image: url('../++resource++datatables/images/back_disabled.jpg');
+}
+
+.paginate_enabled_previous {
+	background-image: url('../++resource++datatables/images/back_enabled.jpg');
+}
+
+.paginate_disabled_next {
+	background-image: url('../++resource++datatables/images/forward_disabled.jpg');
+}
+
+.paginate_enabled_next {
+	background-image: url('../++resource++datatables/images/forward_enabled.jpg');
+}
+
+
+
+table#table-datagrid {
+	margin: 0 auto;
+	clear: both;
+	width: 100%;
+}
+
+table#table-datagrid thead th {
+	padding: 3px 18px 3px 10px;
+	border-bottom: 1px solid black;
+	font-weight: bold;
+	cursor: pointer;
+	* cursor: hand;
+}
+
+table#table-datagrid tfoot th {
+	padding: 3px 18px 3px 10px;
+	border-top: 1px solid black;
+	font-weight: bold;
+}
+
+table#table-datagrid tr.heading2 td {
+	border-bottom: 1px solid #aaa;
+}
+
+table#table-datagrid td {
+	padding: 3px 10px;
+}
+
+table#table-datagrid td.center {
+	text-align: center;
+}
+
+
+
+/* sorting */
+table#table-datagrid .sorting_asc {
+	background: url('../++resource++datatables/images/sort_asc.png') no-repeat center right;
+}
+
+table#table-datagrid .sorting_desc {
+	background: url('../++resource++datatables/images/sort_desc.png') no-repeat center right;
+}
+
+table#table-datagrid .sorting {
+	background: url('../++resource++datatables/images/sort_both.png') no-repeat center right;
+}
+
+table#table-datagrid .sorting_asc_disabled {
+	background: url('../++resource++datatables/images/sort_asc_disabled.png') no-repeat center right;
+}
+
+table#table-datagrid .sorting_desc_disabled {
+	background: url('../++resource++datatables/images/sort_desc_disabled.png') no-repeat center right;
+}
+
+
+
+
+/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+ * Misc
+ */
+.dataTables_scroll {
+	clear: both;
+}
+
+.dataTables_scrollBody {
+	*margin-top: -1px;
+}
+
+.top, .bottom {
+	padding: 15px;
+	background-color: #F5F5F5;
+	border: 1px solid #CCCCCC;
+}
+
+.top .dataTables_info {
+	float: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.dataTables_empty {
+	text-align: center;
+}
+
+tfoot input {
+	margin: 0.5em 0;
+	width: 100%;
+	color: #444;
+}
+
+tfoot input.search_init {
+	color: #999;
+}
+
+td.group {
+	background-color: #d1cfd0;
+	border-bottom: 2px solid #A19B9E;
+	border-top: 2px solid #A19B9E;
+}
+
+td.details {
+	background-color: #d1cfd0;
+	border: 2px solid #A19B9E;
+}
+
+table#table-datagrid tr.even.row_selected td {
+	background-color: #B0BED9;
+}
+
+table#table-datagrid tr.odd.row_selected td {
+	background-color: #9FAFD1;
+}
+
+
+/* Sorting classes for columns */
+ /* Needs better colours matching with Plone odd/even rows */
+tr.odd td.sorting_1 {
+	background-color: #D3D6FF;
+}
+
+tr.odd td.sorting_2 {
+	background-color: #DADCFF;
+}
+
+tr.odd td.sorting_3 {
+	background-color: #E0E2FF;
+}
+
+tr.even td.sorting_1 {
+	background-color: #EAEBFF;
+}
+
+tr.even td.sorting_2 {
+	background-color: #F2F3FF;
+}
+
+tr.even td.sorting_3 {
+	background-color: #F9F9FF;
+}
+
+
+/* KeyTable */
+table.KeyTable td {
+	border: 3px solid transparent;
+}
+
+table.KeyTable td.focus {
+	border: 3px solid #3366FF;
+}
+
+table#table-datagrid tr.gradeA {
+	background-color: #eeffee;
+}
+
+table#table-datagrid tr.gradeC {
+	background-color: #ddddff;
+}
+
+table#table-datagrid tr.gradeX {
+	background-color: #ffdddd;
+}
+
+table#table-datagrid tr.gradeU {
+	background-color: #ddd;
+}
+
+div.box {
+	height: 100px;
+	padding: 10px;
+	overflow: auto;
+	border: 1px solid #8080FF;
+	background-color: #E5E5FF;
+}

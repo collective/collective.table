@@ -1,7 +1,21 @@
 <?xml version="1.0"?>
 <configure
-    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns="http://namespaces.zope.org/browser"
+    xmlns:zope="http://namespaces.zope.org/zope"
     i18n_domain="collective.table"
     >
+
+<resourceDirectory
+    name="collective.table"
+    directory="resources"
+    />
+
+<page 
+    name="table_view"
+    for="..interfaces.ITable"
+    class=".table.TableView"
+    template="templates/table.pt"
+    permission="zope2.View"
+    />
 
 </configure>

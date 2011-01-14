@@ -28,6 +28,7 @@ setup(name='collective.table',
       install_requires=[
           'setuptools',
           'Products.CMFPlone',
+          'collective.js.datatables',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
