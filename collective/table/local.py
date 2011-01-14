@@ -14,3 +14,9 @@ class LocalSource(object):
 
     def __init__(self, context):
         self.context = context
+
+    def listColumns(self):
+        return (
+            dict(id='one', title=u'Column 1'),
+            dict(id='two', title=u'Column 2'),
+        )

@@ -14,8 +14,8 @@
     name="table_view"
     for="..interfaces.ITable"
     class=".table.TableView"
-    template="templates/table.pt"
     permission="zope2.View"
+    allowed_attributes="json_data"
     />
 
 </configure>
