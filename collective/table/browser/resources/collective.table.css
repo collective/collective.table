@@ -187,6 +187,38 @@ table#table-datagrid tr.odd.row_selected td {
 	background-color: #9FAFD1;
 }
 
+.dataTables_wrapper .paging_full_numbers {
+	width: 400px;
+	height: 22px;
+	line-height: 22px;
+}
+
+/* Needs some serious Plone love */
+.dataTables_wrapper .paging_full_numbers span.paginate_button,
+ 	.dataTables_wrapper .paging_full_numbers span.paginate_active {
+	border: 1px solid #aaa;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	padding: 2px 5px;
+	margin: 0 3px;
+	cursor: pointer;
+	*cursor: hand;
+	font-size: smaller;
+}
+
+.dataTables_wrapper .paging_full_numbers span.paginate_button {
+	background-color: #ddd;
+}
+
+.dataTables_wrapper .paging_full_numbers span.paginate_button:hover {
+	background-color: #ccc;
+}
+
+.dataTables_wrapper .paging_full_numbers span.paginate_active {
+	background-color: #99B3FF;
+}
+
+
 
 /* Sorting classes for columns */
  /* Needs better colours matching with Plone odd/even rows */
