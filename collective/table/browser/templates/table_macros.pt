@@ -18,6 +18,8 @@
 </metal:view_macro>
 
 <metal:edit_macro define-macro="edit">
+<metal:use use-macro="field_macro | context/widgets/field/macros/edit">
+<div metal:fill-slot="widget_body">
   <table id="field-table-datagrid" class="dataTables listing nosort" 
          tal:attributes="id string:$fieldName-table-datagrid">
     <tbody>
@@ -29,6 +31,8 @@
 
   <input name="" value="__ignored__" type="hidden"
         tal:attributes="name fieldName"/>
+</div>
+</metal:use>
 </metal:edit_macro>
 
 
