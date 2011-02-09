@@ -34,23 +34,12 @@ class DataTableField(ObjectField):
     # things to clean things up
     security.declarePrivate('setStorage')
     def setStorage(self, instance, storage):
-          raise ObjectFieldException, "Storage setting not supported"
+        raise ObjectFieldException, "Not supported, use field.setSource(name) instead"
 
     security.declarePrivate('getStorage')
     def getStorage(self, instance=None):
-        return self
+        return self.getSource(instance)
 
-    security.declarePublic('getStorageName')
-    def getStorageName(self, instance=None):
-        """Return the storage name that is configured for this field
-        as a string"""
-        return ""
-
-    security.declarePublic('getStorageType')
-    def getStorageType(self, instance=None):
-        """Return the type of the storage of this field as a string"""
-        return ""
-    
 
 registerField(DataTableField, 
     title='Data Table', description='Complex data table with flexible sources')

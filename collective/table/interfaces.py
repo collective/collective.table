@@ -1,5 +1,5 @@
-from zope import interface, schema
-from Products.Archetypes.interfaces import IObjectField
+from zope import schema
+from Products.Archetypes.interfaces import IObjectField, IStorage
 
 
 class ITableField(IObjectField):
@@ -9,7 +9,7 @@ class ITableField(IObjectField):
         """Return the currently selected data source"""
 
 
-class ISource(interface.Interface):
+class ISource(IStorage):
     """Base source adapter interface.
 
     Concrete subclasses of this interface, registered as named adapters for
