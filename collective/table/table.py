@@ -1,13 +1,12 @@
 from Products.Archetypes import atapi
-from Products.ATContentTypes.content import base
-from Products.ATContentTypes.content import schemata
+from Products.ATContentTypes.content import document
 
 from .config import PROJECTNAME
 from .field_widget import DataTableField, DataTableWidget
 from . import MessageFactory as _
 
 
-TableSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
+TableSchema = document.ATDocumentSchema.copy() + atapi.Schema((
     DataTableField('table',
         languageIndependent=False,
         widget=DataTableWidget(
@@ -17,9 +16,13 @@ TableSchema = schemata.ATContentTypeSchema.copy() + atapi.Schema((
     ),
 ))
 
+TableSchema.moveField('table', before='text')
+TableSchema['presentation'].widget.condition = 'python:False'
+TableSchema['tableContents'].widget.condition = 'python:False'
 
-class Table(base.ATCTContent):
+
+class Table(document.ATDocumentBase):
     schema = TableSchema
 
 
-base.registerATCT(Table, PROJECTNAME)
+document.registerATCT(Table, PROJECTNAME)
