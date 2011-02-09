@@ -1,8 +1,8 @@
 from zope import interface, schema
-from Products.Archetypes.interfaces import IField
+from Products.Archetypes.interfaces import IObjectField
 
 
-class ITableField(IField):
+class ITableField(IObjectField):
     """A data table field."""
 
     def getSource(self, instance):
