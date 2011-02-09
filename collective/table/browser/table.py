@@ -1,24 +1,53 @@
 import json
+from zope import interface
 from zope.publisher.browser import BrowserView
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from zope.publisher.interfaces import IPublishTraverse, NotFound
+from zope.traversing.interfaces import ITraversable, TraversalError
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 
 TABLEINIT = u"""\
 (function($) { $(function() {
-    new collective.table.Table('%(url)s', %(columns)s);
+    new collective.table.Table(
+        $('#%(fieldName)s-table-datagrid'), 
+        '%(url)s', %(columns)s);
 }); })(jQuery);
 """
 
 
-class TableView(BrowserView):
-    template = ViewPageTemplateFile('templates/table.pt')
-    
-    def __init__(self, context, request):
-        BrowserView.__init__(self, context, request)
-        self.source = context.getSource()
+class TableWidget(BrowserView):
+    interface.implements(IPublishTraverse, ITraversable)
 
-    def __call__(self):
-        return self.template()
+    fieldName = None
+
+    # ITraversable interface, for path traversing
+    def traverse(self, name, further_path=[]):
+        if self.fieldName is None and name in self.context.Schema():
+            self.fieldName = name
+            return self
+        return getattr(self, name)
+
+    # IPublishTraverse interface, for URL access
+    def publishTraverse(self, request, name):
+        try:
+            return self.traverse(name)
+        except TraversalError:
+            pass
+        try:
+            return super(TableWidget, self).publishTraverse(request, name)
+        except NotFound:
+            default = DefaultPublishTraverse(self, request)
+            return default.publishTraverse(request, name)
+
+    @property
+    def macros(self):
+        # The Archetypes widget machinery insists on .macros (attribute)
+        return self['macros']
+
+    @property
+    def source(self):
+        field = self.context.Schema()[self.fieldName]
+        return field.getSource(self.context)
 
     def tableinit(self):
         columndefs = []
@@ -29,10 +58,12 @@ class TableView(BrowserView):
             ))
         columns = json.dumps(columndefs)
 
-        url = '%s/@@%s/json_data' % (
-            self.context.absolute_url(), self.__name__)
+        url = '%s/@@%s/%s/json_data' % (
+            self.context.absolute_url(), self.__name__, self.fieldName)
 
-        return TABLEINIT % dict(url=url, columns=columns)
+        return TABLEINIT % dict(
+            fieldName=self.fieldName, url=url, columns=columns
+        )
 
     def json_data(self):
         """Return data from the source"""

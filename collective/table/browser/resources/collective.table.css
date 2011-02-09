@@ -71,13 +71,13 @@
 
 
 
-table#table-datagrid {
+table.dataTables {
 	margin: 0 auto;
 	clear: both;
 	width: 100%;
 }
 
-table#table-datagrid thead th {
+table.dataTables thead th {
 	padding: 3px 18px 3px 10px;
 	border-bottom: 1px solid black;
 	font-weight: bold;
@@ -85,44 +85,44 @@ table#table-datagrid thead th {
 	* cursor: hand;
 }
 
-table#table-datagrid tfoot th {
+table.dataTables tfoot th {
 	padding: 3px 18px 3px 10px;
 	border-top: 1px solid black;
 	font-weight: bold;
 }
 
-table#table-datagrid tr.heading2 td {
+table.dataTables tr.heading2 td {
 	border-bottom: 1px solid #aaa;
 }
 
-table#table-datagrid td {
+table.dataTables td {
 	padding: 3px 10px;
 }
 
-table#table-datagrid td.center {
+table.dataTables td.center {
 	text-align: center;
 }
 
 
 
 /* sorting */
-table#table-datagrid .sorting_asc {
+table.dataTables .sorting_asc {
 	background: url('../++resource++datatables/images/sort_asc.png') no-repeat center right;
 }
 
-table#table-datagrid .sorting_desc {
+table.dataTables .sorting_desc {
 	background: url('../++resource++datatables/images/sort_desc.png') no-repeat center right;
 }
 
-table#table-datagrid .sorting {
+table.dataTables .sorting {
 	background: url('../++resource++datatables/images/sort_both.png') no-repeat center right;
 }
 
-table#table-datagrid .sorting_asc_disabled {
+table.dataTables .sorting_asc_disabled {
 	background: url('../++resource++datatables/images/sort_asc_disabled.png') no-repeat center right;
 }
 
-table#table-datagrid .sorting_desc_disabled {
+table.dataTables .sorting_desc_disabled {
 	background: url('../++resource++datatables/images/sort_desc_disabled.png') no-repeat center right;
 }
 
@@ -179,11 +179,11 @@ td.details {
 	border: 2px solid #A19B9E;
 }
 
-table#table-datagrid tr.even.row_selected td {
+table.dataTables tr.even.row_selected td {
 	background-color: #B0BED9;
 }
 
-table#table-datagrid tr.odd.row_selected td {
+table.dataTables tr.odd.row_selected td {
 	background-color: #9FAFD1;
 }
 
@@ -254,22 +254,6 @@ table.KeyTable td {
 
 table.KeyTable td.focus {
 	border: 3px solid #3366FF;
-}
-
-table#table-datagrid tr.gradeA {
-	background-color: #eeffee;
-}
-
-table#table-datagrid tr.gradeC {
-	background-color: #ddddff;
-}
-
-table#table-datagrid tr.gradeX {
-	background-color: #ffdddd;
-}
-
-table#table-datagrid tr.gradeU {
-	background-color: #ddd;
 }
 
 div.box {

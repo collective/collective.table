@@ -1,10 +1,11 @@
 from zope import interface, schema
+from Products.Archetypes.interfaces import IField
 
 
-class ITable(interface.Interface):
-    """A data table content type."""
+class ITableField(IField):
+    """A data table field."""
 
-    def getSource(self):
+    def getSource(self, instance):
         """Return the currently selected data source"""
 
 

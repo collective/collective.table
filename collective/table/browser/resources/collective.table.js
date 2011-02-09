@@ -1,10 +1,10 @@
 if (typeof(collective) == 'undefined')
     collective = {};
 collective.table = (function($) {
-    var Table = function(url, columns) {
+    var Table = function(table, url, columns) {
         var self = this;
 
-        self.table = $('table#table-datagrid').dataTable({
+        self.table = table.dataTable({
             aoColumns: columns,
             sAjaxSource: url
         })

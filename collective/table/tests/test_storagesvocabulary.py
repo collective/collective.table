@@ -1,22 +1,24 @@
 import unittest
 from zope import component, interface, testing
+from Products.Archetypes.interfaces import IBaseObject
 
-from ..interfaces import ITable, ISource
+from ..interfaces import ITableField, ISource
 
 
-class MockTable(object):
-    interface.implements(ITable)
+class MockContent(object):
+    interface.implements(IBaseObject)
+
 
 class MockSource(object):
     interface.implements(ISource)
-    component.adapts(ITable)
-    def __init__(self, context): pass
+    component.adapts(ITableField, IBaseObject)
+    def __init__(self, field, instance): pass
 
 
 class StoragesVocabularyTest(testing.cleanup.CleanUp, unittest.TestCase):
     def _availableTableStorages(self):
-        from ..table import availableTableStorages
-        return availableTableStorages(MockTable())
+        from ..field_widget import availableTableStorages
+        return availableTableStorages(MockContent())
 
     def testNoRegistrations(self):
         vocab = self._availableTableStorages()

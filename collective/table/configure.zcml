@@ -15,7 +15,7 @@
 
 <utility
   name="available-table-storages"
-  component=".table.availableTableStorages"
+  component=".field_widget.availableTableStorages"
   provides="zope.schema.interfaces.IVocabularyFactory"
   />
 

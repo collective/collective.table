@@ -10,10 +10,11 @@
     directory="resources"
     />
 
-<page 
-    name="table_view"
-    for="..interfaces.ITable"
-    class=".table.TableView"
+<page
+    for="Products.Archetypes.interfaces.IBaseObject"
+    name="collective.table.widgets"
+    template="templates/table_macros.pt"
+    class=".table.TableWidget"
     permission="zope2.View"
     allowed_attributes="json_data"
     />

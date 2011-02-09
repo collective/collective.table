@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+     xmlns:tal="http://xml.zope.org/namespaces/tal"
+     xmlns:metal="http://xml.zope.org/namespaces/metal"
+     xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+     i18n:domain="collective.table"
+     tal:omit-tag="">
+
+<tal:if condition="fieldName|nothing"><!-- only use when viewing widgets -->
+<metal:view_macro define-macro="view">
+    <table id="field-table-datagrid" class="dataTables listing nosort" 
+           tal:attributes="id string:$fieldName-table-datagrid">
+      <tbody>
+      </tbody>
+    </table>
+    <script type="text/javascript" charset="utf-8"
+            tal:define="view python:path('nocall:context/@@collective.table.widgets/%s' % fieldName)"
+            tal:content="view/tableinit"></script>
+</metal:view_macro>
+
+<metal:edit_macro define-macro="edit">
+  <table id="field-table-datagrid" class="dataTables listing nosort" 
+         tal:attributes="id string:$fieldName-table-datagrid">
+    <tbody>
+    </tbody>
+  </table>
+  <script type="text/javascript" charset="utf-8"
+          tal:define="view python:path('nocall:context/@@collective.table.widgets/%s' % fieldName)"
+          tal:content="view/tableinit"></script>
+
+  <input name="" value="__ignored__" type="hidden"
+        tal:attributes="name fieldName"/>
+</metal:edit_macro>
+
+
+<metal:hidden_macro define-macro="hidden">
+  <input name="" value="__ignored__" type="hidden"
+         tal:attributes="name fieldName;" />
+</metal:hidden_macro>
+</tal:if>
+
+</html>
