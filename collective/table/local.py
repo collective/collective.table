@@ -13,6 +13,9 @@ class LocalSource(BaseSource):
     security = ClassSecurityInfo()
 
     title = _(u'label_localsource', default=u'Locally stored')
+    description = _(u'description_localsource', 
+        default=u'The rows for a local table are stored locally with the '
+                u'content item')
     configurationView = '@@local-config'
 
     security.declarePrivate('listColumns')

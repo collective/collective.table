@@ -1,9 +1,11 @@
 import json
-from zope import interface
+from zope import component, interface
 from zope.publisher.browser import BrowserView
 from zope.publisher.interfaces import IPublishTraverse, NotFound
 from zope.traversing.interfaces import ITraversable, TraversalError
 from ZPublisher.BaseRequest import DefaultPublishTraverse
+
+from ..interfaces import ISource
 
 
 TABLEINIT = u"""\
@@ -45,9 +47,24 @@ class TableWidget(BrowserView):
         return self['macros']
 
     @property
+    def field(self):
+        return self.context.Schema()[self.fieldName]
+
+    def availableSources(self):
+        adapters = component.getAdapters((self.field, self.context), ISource)
+        current = self.field.sourceName
+        sources = []
+        for name, source in adapters:
+            sources.append(dict(
+                id=name, title=source.title, 
+                description=source.description,
+                selected=(name == current)
+            ))
+        return sources
+
+    @property
     def source(self):
-        field = self.context.Schema()[self.fieldName]
-        return field.getSource(self.context)
+        return self.field.getSource(self.context)
 
     def tableinit(self):
         columndefs = []

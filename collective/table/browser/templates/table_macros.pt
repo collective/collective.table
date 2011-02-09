@@ -19,15 +19,30 @@
 
 <metal:edit_macro define-macro="edit">
 <metal:use use-macro="field_macro | context/widgets/field/macros/edit">
-<div metal:fill-slot="widget_body">
-  <table id="field-table-datagrid" class="dataTables listing nosort" 
-         tal:attributes="id string:$fieldName-table-datagrid">
-    <tbody>
-    </tbody>
-  </table>
-  <script type="text/javascript" charset="utf-8"
-          tal:define="view python:path('nocall:context/@@collective.table.widgets/%s' % fieldName)"
-          tal:content="view/tableinit"></script>
+<div metal:fill-slot="widget_body" tal:define="
+    view python:path('nocall:context/@@collective.table.widgets/%s' % fieldName);
+    sources view/availableSources">
+
+  <tal:if condition="python:len(sources) > 1">
+  <label i18n:translate="label_datasource">Data Source</label>
+  <div class="formHelp">Select a source for the data table information.</div>
+  <div class="dataTable-selectSourceName" tal:repeat="source sources">
+      <input type="radio" name="field.sourceName" id="dataTable-sourceName-id"
+             class="noborder blurrable"
+          tal:attributes="
+              name string:$fieldName.sourceName;
+              id string:dataTable-sourceName-${source/id};
+              value source/id;
+              checked python:source['selected'] or None;"
+          />
+      <label for="dataTable-sourceName-id" tal:attributes="
+             for string:dataTable-sourceName-${source/id}"
+             tal:content="source/title">Source Title</label>
+      <div class="dataTable-selectSourceName-help" tal:content="source/description">
+          Longer source description
+      </div>
+  </div>
+  </tal:if>
 
   <input name="" value="__ignored__" type="hidden"
         tal:attributes="name fieldName"/>

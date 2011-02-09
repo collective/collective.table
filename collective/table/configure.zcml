@@ -13,12 +13,6 @@
 <include package=".browser" />
 <include file="sources.zcml" />
 
-<utility
-  name="available-table-storages"
-  component=".field_widget.availableTableStorages"
-  provides="zope.schema.interfaces.IVocabularyFactory"
-  />
-
 <i18n:registerTranslations directory="locales" />
 
 <genericsetup:registerProfile

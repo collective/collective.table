@@ -22,6 +22,11 @@ class ISource(IStorage):
         description=u'Human-readable title of the data source',
         required=True)
 
+    description = schema.Text(
+        title=u'Description',
+        description=u'Human-readable longer description of the data source',
+        required=True)
+
     configurationView = schema.ASCIILine(
         title=u'Configuration View',
         description=u'The name of the view used to configure this source',
