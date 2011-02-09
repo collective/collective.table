@@ -88,8 +88,5 @@ class TableWidget(BrowserView):
         self.request.response.setHeader('content-type', 'application/json')
 
         return json.dumps(dict(
-            aaData=(
-                ('Cell 1-1', 'Cell 1-2'),
-                ('Cell 2-1', 'Cell 2-2'),
-            ),
+            aaData=self.field.get(self.context)
         ))
