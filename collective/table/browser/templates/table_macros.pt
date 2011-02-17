@@ -31,12 +31,12 @@
              class="noborder blurrable"
           tal:attributes="
               name string:$fieldName.sourceName;
-              id string:dataTable-sourceName-${source/id};
+              id string:dataTable-sourceName-$fieldName-${source/id};
               value source/id;
               checked python:source['selected'] or None;"
           />
       <label for="dataTable-sourceName-id" tal:attributes="
-             for string:dataTable-sourceName-${source/id}"
+             for string:dataTable-sourceName-$fieldName-${source/id}"
              tal:content="source/title">Source Title</label>
       <div class="dataTable-selectSourceName-help" tal:content="source/description">
           Longer source description
