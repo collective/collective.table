@@ -44,6 +44,22 @@
   </div>
   </tal:if>
 
+  <tal:comment condition="python:False">
+    XXX: the following is going to be replaced by per-source configuration.
+    This is a simple form to configure a local source, when we have multiple
+    source implementations each source will provide a form in a pop-up, or
+    in case of only one registered source, an inlined form right here.
+  </tal:comment>
+  <label for="dataTable-local-columns-id" tal:attributes="
+         for string:dataTable-local-columns-$fieldName"
+         i18n:translate="label_local_columns">Table columns</label><br/>
+  <textarea class="bularrable firstToFocus" cols="40" rows="5" name=""
+    id="dataTable-local-columns-id"
+    tal:attributes="name string:$fieldName.local.columns:ustring;
+                    id string:dataTable-local-columns-$fieldName"
+    tal:content="python:'\n'.join(c['title'] for c in view.source.listColumns())">
+  </textarea>
+
   <input name="" value="__ignored__" type="hidden"
         tal:attributes="name fieldName"/>
 </div>

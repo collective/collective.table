@@ -23,6 +23,20 @@ class DataTableWidget(TypesWidget):
         sourceName = form.get('%s.sourceName' % field.getName())
         if sourceName is not None:
             field.sourceName = sourceName
+
+        # This should be handled at the source level, but until we have more
+        # than one, it'll do here.
+        columndefs = form.get('%s.local.columns' % field.getName())
+        if columndefs is not None:
+            columns = []
+            counter = 0
+            for line in columndefs.splitlines():
+                title = line.strip()
+                if not title:
+                    continue
+                columns.append(dict(id='col%02d' % counter, title=title))
+                counter += 1
+            field.getSource(instance).setColumns(columns)
         return TypesWidget.process_form(self, instance, field, form, **kw)
 
 

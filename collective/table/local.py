@@ -1,6 +1,8 @@
 # Simple, local ZODB storage of a table
 from zope import interface
+from zope.annotation.interfaces import IAnnotations
 from AccessControl import ClassSecurityInfo
+from persistent.mapping import PersistentMapping
 from Products.Archetypes.utils import setSecurity
 
 from .interfaces import ILocalSource
@@ -18,12 +20,19 @@ class LocalSource(BaseSource):
                 u'content item')
     configurationView = '@@local-config'
 
+    @property
+    def _annotations(self):
+        mapping = IAnnotations(self.instance).setdefault(
+            'collective.table.local', PersistentMapping())
+        return mapping.setdefault(self.field.getName(), PersistentMapping())
+
     security.declarePrivate('listColumns')
     def listColumns(self):
-        return (
-            dict(id='one', title=u'Column 1'),
-            dict(id='two', title=u'Column 2'),
-        )
+        return self._annotations.get('columns', ())
+
+    security.declarePrivate('setColumns')
+    def setColumns(self, columns):
+        self._annotations['columns'] = columns
 
     security.declarePrivate('get')
     def get(self, name, instance, **kwargs):
