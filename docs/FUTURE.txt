@@ -8,3 +8,7 @@ Ideas for future features:
   * Vocabularies? (selects)
 * SQL integration
 * Search (DataTables supports a search box)
+
+* Row / table editing issues to deal with:
+  * insertion of rows in the middle, together with concurrent editing
+  * cell editing, together with concurrent editing
