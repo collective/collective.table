@@ -10,6 +10,13 @@ from .source import BaseSource
 from . import MessageFactory as _
 
 
+DEVELOPMENT_DEFAULT = (
+    dict(col00='Cell 1-1', col01='Cell 1-2'),
+    dict(col00='Cell 2-1', col01='Cell 2-2'),
+    dict(col00='Cell 3-1', col01='Cell 3-2'),
+)
+
+
 class LocalSource(BaseSource):
     interface.implementsOnly(ILocalSource)
     security = ClassSecurityInfo()
@@ -36,11 +43,12 @@ class LocalSource(BaseSource):
 
     security.declarePrivate('get')
     def get(self, name, instance, **kwargs):
-        return (
-            ('Cell 1-1', 'Cell 1-2'),
-            ('Cell 2-1', 'Cell 2-2'),
-            ('Cell 3-1', 'Cell 3-2'),
-        )
+        data = self._annotations.get('rows', DEVELOPMENT_DEFAULT)
+        result = []
+        columns = tuple(c['id'] for c in self.listColumns())
+        for row in data:
+            result.append(tuple(row.get(c) for c in columns))
+        return result
 
     security.declarePrivate('set')
     def set(self, name, instance, value, **kwargs):
