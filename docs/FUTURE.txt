@@ -8,7 +8,7 @@ Ideas for future features:
   * Vocabularies? (selects)
 * SQL integration
 * Search (DataTables supports a search box)
-
+* i18n: set correct language based on the rest of the page's language.
 * Row / table editing issues to deal with:
   * insertion of rows in the middle, together with concurrent editing
   * cell editing, together with concurrent editing
