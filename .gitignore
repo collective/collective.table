@@ -1,0 +1,8 @@
+bin
+.installed.cfg
+collective.table.tmproj
+develop-eggs
+include
+lib
+parts
+var
