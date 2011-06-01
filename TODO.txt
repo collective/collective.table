@@ -3,3 +3,5 @@
  * add jenkins.cfg so we can add this project to jenkins.plone.org
  * add plone.app.testing tests
  * add support for Selenium tests
+ * unit tests for JS?
+ * ignore generated folders/files
