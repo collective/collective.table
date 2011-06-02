@@ -1,4 +1,4 @@
-import unittest
+import unittest2 as unittest
 from zope import component, interface, testing
 from Products.Archetypes.interfaces import IBaseObject
 
@@ -15,7 +15,7 @@ class MockSource(object):
     def __init__(self, field, instance): pass
 
 
-class StoragesVocabularyTest(testing.cleanup.CleanUp, unittest.TestCase):
+class StoragesVocabularyTest(unittest.TestCase):
     def _availableTableStorages(self):
         from ..field_widget import availableTableStorages
         return availableTableStorages(MockContent())

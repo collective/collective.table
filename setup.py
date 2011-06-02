@@ -29,6 +29,7 @@ setup(name='collective.table',
           'setuptools',
           'Products.CMFPlone',
           'collective.js.datatables',
+          'plone.app.testing',
           # -*- Extra requirements: -*-
       ],
       entry_points="""
