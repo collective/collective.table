@@ -6,3 +6,4 @@ include
 lib
 parts
 var
+docs/make.bat
