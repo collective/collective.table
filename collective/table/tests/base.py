@@ -11,6 +11,7 @@ from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
 from plone.app.testing import PloneSandboxLayer
 from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing.selenium_layers import SELENIUM_PLONE_FUNCTIONAL_TESTING
 
 
 class TableLayer(PloneSandboxLayer):
@@ -59,3 +60,9 @@ class TableFunctionalTestCase(unittest.TestCase):
     tests that require a full-blown Plone instance for testing.
     """
     layer = FUNCTIONAL_TESTING
+
+class TableSeleniumTestCase(TableFunctionalTestCase):
+    """We use this base class for all functional tests in this package -
+    tests that require a full-blown Plone instance for testing.
+    """
+    layer = SELENIUM_PLONE_FUNCTIONAL_TESTING
