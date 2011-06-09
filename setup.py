@@ -29,9 +29,13 @@ setup(name='collective.table',
           'setuptools',
           'Products.CMFPlone',
           'collective.js.datatables',
-          'plone.app.testing',
-          # -*- Extra requirements: -*-
       ],
+      extras_require={
+          'test': [
+              'plone.app.testing',
+              'selenium',
+           ],
+      },
       entry_points="""
       # -*- Entry points: -*-
       [z3c.autoinclude.plugin]
