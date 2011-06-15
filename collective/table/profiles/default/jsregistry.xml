@@ -3,7 +3,7 @@
 
   <javascript cacheable="True" compression="safe"
       cookable="True" enabled="1" expression=""
-      id="++resource++jquery.datatables/extras/TableTools/media/ZeroClipboard/ZeroClipboard.js"
+      id="++resource++jquery.datatables/extras/TableTools/media/js/ZeroClipboard.js"
       />
   <javascript cacheable="True" compression="safe"
       cookable="True" enabled="1" expression=""
