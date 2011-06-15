@@ -16,7 +16,7 @@
     template="templates/table_macros.pt"
     class=".table.TableWidget"
     permission="zope2.View"
-    allowed_attributes="json_data"
+    allowed_attributes="json_data update_cell"
     />
 
 </configure>

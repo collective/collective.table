@@ -22,7 +22,7 @@ class LocalSource(BaseSource):
     security = ClassSecurityInfo()
 
     title = _(u'label_localsource', default=u'Locally stored')
-    description = _(u'description_localsource', 
+    description = _(u'description_localsource',
         default=u'The rows for a local table are stored locally with the '
                 u'content item')
     configurationView = '@@local-config'
@@ -43,12 +43,11 @@ class LocalSource(BaseSource):
 
     security.declarePrivate('get')
     def get(self, name, instance, **kwargs):
-        data = self._annotations.get('rows', DEVELOPMENT_DEFAULT)
-        result = []
-        columns = tuple(c['id'] for c in self.listColumns())
-        for row in data:
-            result.append(tuple(row.get(c) for c in columns))
-        return result
+        return self._annotations.get('rows', DEVELOPMENT_DEFAULT)
+
+    security.declarePrivate('setColumns')
+    def update_cell(self, row_id, column_name, value):
+        DEVELOPMENT_DEFAULT[row_id][column_name] = value
 
     security.declarePrivate('set')
     def set(self, name, instance, value, **kwargs):

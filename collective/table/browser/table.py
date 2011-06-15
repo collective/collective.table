@@ -11,7 +11,7 @@ from ..interfaces import ISource
 TABLEINIT = u"""\
 (function($) { $(function() {
     new collective.table.Table(
-        $('#%(fieldName)s-table-datagrid'), 
+        $('#%(fieldName)s-table-datagrid'),
         '%(url)s', %(columns)s);
 }); })(jQuery);
 """
@@ -56,7 +56,7 @@ class TableWidget(BrowserView):
         sources = []
         for name, source in adapters:
             sources.append(dict(
-                id=name, title=source.title, 
+                id=name, title=source.title,
                 description=source.description,
                 selected=(name == current)
             ))
@@ -70,12 +70,13 @@ class TableWidget(BrowserView):
         columndefs = []
         for column in self.source.listColumns():
             columndefs.append(dict(
-                sName=column['id'],
                 sTitle=column['title'],
+                sName=column['id'],
+                mDataProp=column['id'],
             ))
         columns = json.dumps(columndefs)
 
-        url = '%s/@@%s/%s/json_data' % (
+        url = '%s/@@%s/%s/' % (
             self.context.absolute_url(), self.__name__, self.fieldName)
 
         return TABLEINIT % dict(
@@ -86,7 +87,15 @@ class TableWidget(BrowserView):
         """Return data from the source"""
 
         self.request.response.setHeader('content-type', 'application/json')
-
-        return json.dumps(dict(
+        result = json.dumps(dict(
             aaData=self.field.get(self.context)
         ))
+        return result
+
+    def update_cell(self):
+        """Update a single cell in our dataset."""
+        row_id = int(self.request.rowId)
+        column_name = self.request.columnName
+        value = self.request.value
+        self.source.update_cell(row_id, column_name, value)
+        return value  # we need to return this so we don't get a 'server error' in UI
