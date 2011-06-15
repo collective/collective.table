@@ -1,3 +1,6 @@
+Future
+======
+
 Ideas for future features:
 
 * New types beyond string:
