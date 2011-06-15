@@ -1,5 +1,6 @@
-bin
 .installed.cfg
+.mr.developer.cfg
+bin
 collective.table.tmproj
 develop-eggs
 include
@@ -7,3 +8,5 @@ lib
 parts
 var
 docs/make.bat
+docs/Makefile
+src
