@@ -54,19 +54,19 @@
 }
 
 .paginate_disabled_previous {
-	background-image: url('../++resource++datatables/images/back_disabled.jpg');
+	background-image: url('++resource++jquery.datatables/media/images/back_disabled.jpg');
 }
 
 .paginate_enabled_previous {
-	background-image: url('../++resource++datatables/images/back_enabled.jpg');
+	background-image: url('++resource++jquery.datatables/media/images/back_enabled.jpg');
 }
 
 .paginate_disabled_next {
-	background-image: url('../++resource++datatables/images/forward_disabled.jpg');
+	background-image: url('++resource++jquery.datatables/media/images/forward_disabled.jpg');
 }
 
 .paginate_enabled_next {
-	background-image: url('../++resource++datatables/images/forward_enabled.jpg');
+	background-image: url('++resource++jquery.datatables/media/images/forward_enabled.jpg');
 }
 
 
@@ -107,23 +107,23 @@ table.dataTables td.center {
 
 /* sorting */
 table.dataTables .sorting_asc {
-	background: url('../++resource++datatables/images/sort_asc.png') no-repeat center right;
+	background: url('++resource++jquery.datatables/media/images/sort_asc.png') no-repeat center right;
 }
 
 table.dataTables .sorting_desc {
-	background: url('../++resource++datatables/images/sort_desc.png') no-repeat center right;
+	background: url('++resource++jquery.datatables/media/images/sort_desc.png') no-repeat center right;
 }
 
 table.dataTables .sorting {
-	background: url('../++resource++datatables/images/sort_both.png') no-repeat center right;
+	background: url('++resource++jquery.datatables/media/images/sort_both.png') no-repeat center right;
 }
 
 table.dataTables .sorting_asc_disabled {
-	background: url('../++resource++datatables/images/sort_asc_disabled.png') no-repeat center right;
+	background: url('++resource++jquery.datatables/media/images/sort_asc_disabled.png') no-repeat center right;
 }
 
 table.dataTables .sorting_desc_disabled {
-	background: url('../++resource++datatables/images/sort_desc_disabled.png') no-repeat center right;
+	background: url('++resource++jquery.datatables/media/images/sort_desc_disabled.png') no-repeat center right;
 }
 
 
@@ -283,45 +283,45 @@ div.box {
 }
 
 .TableTools_csv {
-	background: url(../++resource++jquery.datatables/extras/TableTools/media/images/csv.png) no-repeat center center;
+	background: url(++resource++jquery.datatables/extras/TableTools/media/images/csv.png) no-repeat center center;
 	border: 1px solid #f0f0f0;
 }
 
 .TableTools_csv_hover {
-	background: url(../++resource++jquery.datatables/extras/TableTools/media/images/csv_hover.png) no-repeat center center;
+	background: url(++resource++jquery.datatables/extras/TableTools/media/images/csv_hover.png) no-repeat center center;
 	border: 1px solid #d0d0d0;
 	background-color: #fdfdfd;
 }
 
 .TableTools_xls {
-	background: url(../++resource++jquery.datatables/extras/TableTools/media/images/xls.png) no-repeat center center;
+	background: url(++resource++jquery.datatables/extras/TableTools/media/images/xls.png) no-repeat center center;
 	border: 1px solid #f0f0f0;
 }
 
 .TableTools_xls_hover {
-	background: url(../++resource++jquery.datatables/extras/TableTools/media/images/xls_hover.png) no-repeat center center;
+	background: url(++resource++jquery.datatables/extras/TableTools/media/images/xls_hover.png) no-repeat center center;
 	border: 1px solid #d0d0d0;
 	background-color: #fdfdfd;
 }
 
 .TableTools_clipboard {
-	background: url(../++resource++jquery.datatables/extras/TableTools/media/images/copy.png) no-repeat center center;
+	background: url(++resource++jquery.datatables/extras/TableTools/media/images/copy.png) no-repeat center center;
 	border: 1px solid #f0f0f0;
 }
 
 .TableTools_clipboard_hover {
-	background: url(../++resource++jquery.datatables/extras/TableTools/media/images/copy_hover.png) no-repeat center center;
+	background: url(++resource++jquery.datatables/extras/TableTools/media/images/copy_hover.png) no-repeat center center;
 	border: 1px solid #d0d0d0;
 	background-color: #fdfdfd;
 }
 
 .TableTools_print {
-	background: url(../++resource++jquery.datatables/extras/TableTools/media/images/print.png) no-repeat center center;
+	background: url(++resource++jquery.datatables/extras/TableTools/media/images/print.png) no-repeat center center;
 	border: 1px solid #f0f0f0;
 }
 
 .TableTools_print_hover {
-	background: url(../++resource++jquery.datatables/extras/TableTools/media/images/print_hover.png) no-repeat center center;
+	background: url(++resource++jquery.datatables/extras/TableTools/media/images/print_hover.png) no-repeat center center;
 	border: 1px solid #d0d0d0;
 	background-color: #fdfdfd;
 }
