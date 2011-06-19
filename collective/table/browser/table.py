@@ -98,4 +98,4 @@ class TableWidget(BrowserView):
         column_name = self.request.columnName
         value = self.request.value
         self.source.update_cell(row_id, column_name, value)
-        return value  # we need to return this so we don't get a 'server error' in UI
+        return value  # jEditable expects the sent value to be returned back

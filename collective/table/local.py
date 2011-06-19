@@ -43,15 +43,30 @@ class LocalSource(BaseSource):
 
     security.declarePrivate('get')
     def get(self, name, instance, **kwargs):
-        return self._annotations.get('rows', DEVELOPMENT_DEFAULT)
+        if not self._annotations.get('rows'):
+            self.create_initial_row()
+        return self._annotations.get('rows')
 
     security.declarePrivate('setColumns')
     def update_cell(self, row_id, column_name, value):
-        DEVELOPMENT_DEFAULT[row_id][column_name] = value
+        rows = self._annotations.get('rows')
+        rows[row_id][column_name] = value
+        self._annotations._p_changed = True
 
     security.declarePrivate('set')
     def set(self, name, instance, value, **kwargs):
         pass
+
+    def create_initial_row(self):
+        """Fill first row of data with placeholder text. Format:
+        dict(col00='foo', col01='bar')
+        """
+        print "creating initial row!"
+        columns = self.listColumns()
+        row = dict()
+        for column in columns:
+            row[column['id']] = 'click here to enter data'
+        self._annotations['rows'] = (row, )
 
     security.declarePrivate('unset')
     def unset(self, name, instance, **kwargs):
