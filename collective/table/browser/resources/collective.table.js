@@ -9,7 +9,10 @@ collective.table = (function($) {
 
         self.table = table.dataTable({
             sDom: 'T<"clear">lfrtip', // where in DOM to inject TableTools controls
-            oTableTools: { sSwfPath: swf_url },     // url to SWF files for TableTools controls
+            oTableTools: {
+                sSwfPath: swf_url,  // url to SWF files for TableTools controls
+                aButtons: [ "copy", "csv", "xls", "print"]
+            },
             bProcessing: true,        // display of a 'processing' indicator
             bServerSide: true,        // make an XHR request to the server for each draw of the information on the page
             aoColumns: columns,       // give DataTables specific instructions for each individual column -> don't read from DOM
