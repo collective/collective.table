@@ -17,7 +17,7 @@ collective.table = (function($) {
         }).makeEditable({                      // enable editable cells
               sAddURL: url + "add_row",        // url to send new rows
               sUpdateURL: url + 'update_cell', // url to send updated cell value
-              sDeleteURL: url + "delete_row",  // url to request row deletion 
+              sDeleteURL: url + "delete_row",  // url to request row deletion
            });
     };
 
