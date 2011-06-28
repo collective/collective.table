@@ -89,6 +89,7 @@ class TableWidget(BrowserView):
         self.request.response.setHeader('content-type', 'application/json')
         result = json.dumps(dict(
             aaData=self.field.get(self.context),
+            iTotalRecords=self.source.total_entries(),
             sEcho=self.get_sEcho(),
         ))
         return result
