@@ -94,6 +94,11 @@ class TableWidget(BrowserView):
         ))
         return result
 
+    def get_sEcho(self):
+        """Table draw count sent from the client side. Convert it to integer
+        to prevent XSS attacks."""
+        return int(self.request['sEcho'])
+
     def update_cell(self):
         """Update a single cell in our dataset."""
         row_id = int(self.request.rowId)
@@ -102,7 +107,3 @@ class TableWidget(BrowserView):
         self.source.update_cell(row_id, column_name, value)
         return value  # jEditable expects the sent value to be returned back
 
-    def get_sEcho(self):
-        """Table draw count sent from the client side. Convert it to integer
-        to prevent XSS attacks."""
-        return int(self.request['sEcho'])
