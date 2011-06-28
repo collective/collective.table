@@ -47,7 +47,7 @@ class LocalSource(BaseSource):
             self.create_initial_row()
         return self._annotations.get('rows')
 
-    security.declarePrivate('setColumns')
+    security.declarePrivate('update_cell')
     def update_cell(self, row_id, column_name, value):
         rows = self._annotations.get('rows')
         rows[row_id][column_name] = value
