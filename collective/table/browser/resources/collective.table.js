@@ -17,11 +17,7 @@ collective.table = (function($) {
             bServerSide: true,        // make an XHR request to the server for each draw of the information on the page
             aoColumns: columns,       // give DataTables specific instructions for each individual column -> don't read from DOM
             sAjaxSource: url + 'json_data',    // url from which DataTables should load the remote data
-        }).makeEditable({                      // enable editable cells
-              sAddURL: url + "add_row",        // url to send new rows
-              sUpdateURL: url + 'update_cell', // url to send updated cell value
-              sDeleteURL: url + "delete_row",  // url to request row deletion
-           });
+        });
     };
 
     return {
