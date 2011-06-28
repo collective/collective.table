@@ -88,7 +88,8 @@ class TableWidget(BrowserView):
 
         self.request.response.setHeader('content-type', 'application/json')
         result = json.dumps(dict(
-            aaData=self.field.get(self.context)
+            aaData=self.field.get(self.context),
+            sEcho=self.get_sEcho(),
         ))
         return result
 
@@ -99,3 +100,8 @@ class TableWidget(BrowserView):
         value = self.request.value
         self.source.update_cell(row_id, column_name, value)
         return value  # jEditable expects the sent value to be returned back
+
+    def get_sEcho(self):
+        """Table draw count sent from the client side. Convert it to integer
+        to prevent XSS attacks."""
+        return int(self.request['sEcho'])
