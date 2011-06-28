@@ -107,3 +107,12 @@ class TableWidget(BrowserView):
         self.source.update_cell(row_id, column_name, value)
         return value  # jEditable expects the sent value to be returned back
 
+    def add_row(self):
+        """Add a single row to our dataset."""
+        print "I'm in add_row!"
+        import pdb; pdb.set_trace( )
+        return 3
+
+    def delete_row(self):
+        """Delete a single row from our dataset."""
+        pass
