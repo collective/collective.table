@@ -8,7 +8,6 @@
 <tal:if condition="fieldName|nothing"><!-- only use when viewing widgets -->
 <metal:view_macro define-macro="view">
     
-    <!-- <div class="add_delete_toolbar" /> -->
     <table id="field-table-datagrid" class="dataTables listing nosort" 
            tal:attributes="id string:$fieldName-table-datagrid">
       <tbody>
