@@ -66,6 +66,9 @@ class TableWidget(BrowserView):
     def source(self):
         return self.field.getSource(self.context)
 
+    def url(self):
+        return '%s/@@%s/%s/' % (self.context.absolute_url(), self.__name__, self.fieldName)
+
     def tableinit(self):
         columndefs = []
         for column in self.source.listColumns():
@@ -76,8 +79,7 @@ class TableWidget(BrowserView):
             ))
         columns = json.dumps(columndefs)
 
-        url = '%s/@@%s/%s/' % (
-            self.context.absolute_url(), self.__name__, self.fieldName)
+        url = self.url()
 
         return TABLEINIT % dict(
             fieldName=self.fieldName, url=url, columns=columns
@@ -109,9 +111,8 @@ class TableWidget(BrowserView):
 
     def add_row(self):
         """Add a single row to our dataset."""
-        print "I'm in add_row!"
-        import pdb; pdb.set_trace( )
-        return 3
+        self.source.add_row()
+        self.request.RESPONSE.redirect(self.context.absolute_url())
 
     def delete_row(self):
         """Delete a single row from our dataset."""

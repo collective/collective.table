@@ -61,12 +61,21 @@ class LocalSource(BaseSource):
         """Fill first row of data with placeholder text. Format:
         dict(col00='foo', col01='bar')
         """
-        print "creating initial row!"
         columns = self.listColumns()
         row = dict()
         for column in columns:
             row[column['id']] = 'click here to enter data'
-        self._annotations['rows'] = (row, )
+        self._annotations['rows'] = [row, ]
+
+    def add_row(self):
+        """Add a new row."""
+        columns = self.listColumns()
+        row = dict()
+        for column in columns:
+            row[column['id']] = 'click here to enter data'
+        rows = self._annotations.get('rows')
+        rows.append(row)
+        self._annotations._p_changed = True
 
     security.declarePrivate('unset')
     def unset(self, name, instance, **kwargs):

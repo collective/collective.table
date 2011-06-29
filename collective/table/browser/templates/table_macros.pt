@@ -8,14 +8,16 @@
 <tal:if condition="fieldName|nothing"><!-- only use when viewing widgets -->
 <metal:view_macro define-macro="view">
     
+  <div tal:define="view python:path('nocall:context/@@collective.table.widgets/%s' % fieldName)">  
+    <a href="#" tal:attributes="href string:${view/url}add_row">Click to add new row</a>
     <table id="field-table-datagrid" class="dataTables listing nosort" 
            tal:attributes="id string:$fieldName-table-datagrid">
       <tbody>
       </tbody>
     </table>
     <script type="text/javascript" charset="utf-8"
-            tal:define="view python:path('nocall:context/@@collective.table.widgets/%s' % fieldName)"
             tal:content="view/tableinit"></script>
+  </div>
             
 </metal:view_macro>
 
