@@ -46,3 +46,20 @@ collective.table = (function($) {
         Table: Table
     };
 })(jQuery);
+
+
+/* Get the rows which are currently selected */
+function fnGetSelected( table )
+{
+    var aReturn = new Array();
+    var aTrs = table.fnGetNodes();
+
+    for ( var i=0 ; i<aTrs.length ; i++ )
+    {
+        if ( $(aTrs[i]).hasClass('row_selected') )
+        {
+            aReturn.push( aTrs[i] );
+        }
+    }
+    return aReturn;
+}
