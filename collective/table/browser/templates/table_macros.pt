@@ -9,7 +9,8 @@
 <metal:view_macro define-macro="view">
     
   <div tal:define="view python:path('nocall:context/@@collective.table.widgets/%s' % fieldName)">  
-    <a href="#" tal:attributes="href string:${view/url}add_row">Click to add new row</a>
+    <a id="add-row" href="#" tal:attributes="href string:${view/url}add_row">Click to add new row</a> <br />
+    <a id="delete-row" href="#">Click to remove selected row</a>
     <table id="field-table-datagrid" class="dataTables listing nosort" 
            tal:attributes="id string:$fieldName-table-datagrid">
       <tbody>

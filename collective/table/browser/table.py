@@ -10,9 +10,15 @@ from ..interfaces import ISource
 
 TABLEINIT = u"""\
 (function($) { $(function() {
-    new collective.table.Table(
+    var table = new collective.table.Table(
         $('#%(fieldName)s-table-datagrid'),
         '%(url)s', %(columns)s);
+
+    /* Add a click handler for the delete row button */
+    $('#delete-row').click( function() {
+        alert('alax call to remove a row')
+    } );
+
 }); })(jQuery);
 """
 
