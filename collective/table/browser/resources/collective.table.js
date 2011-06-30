@@ -20,6 +20,7 @@ collective.table = (function($) {
             fnDrawCallback: function () {      // each time data is returned from the server, DataTables will build new DOM elements,
                                                // so these need the jEditable event handlers applied to them
                 $('td', self.table.fnGetNodes()).editable(url + 'update_cell', {
+                    event: 'dblclick',
                     submitdata: function ( value, settings ) {                      // what to submit besides cell value
                         var rowId = self.table.fnGetPosition(this)[0];
                         var columnId = self.table.fnGetPosition(this)[2];
