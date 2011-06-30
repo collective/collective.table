@@ -32,6 +32,12 @@ collective.table = (function($) {
                     },
                     height: "14px"      // height of the editing text-field
                 });
+                $(table, 'tbody').click(function(event) {
+                    $(self.table.fnSettings().aoData).each(function (){
+                        $(this.nTr).removeClass('row_selected');
+                    });
+                    $(event.target.parentNode).addClass('row_selected');
+                });
             }
         });
     };
