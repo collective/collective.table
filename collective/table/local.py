@@ -10,13 +10,6 @@ from .source import BaseSource
 from . import MessageFactory as _
 
 
-DEVELOPMENT_DEFAULT = (
-    dict(col00='Cell 1-1', col01='Cell 1-2'),
-    dict(col00='Cell 2-1', col01='Cell 2-2'),
-    dict(col00='Cell 3-1', col01='Cell 3-2'),
-)
-
-
 class LocalSource(BaseSource):
     interface.implementsOnly(ILocalSource)
     security = ClassSecurityInfo()
