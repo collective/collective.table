@@ -63,18 +63,31 @@ class LocalSource(BaseSource):
         """
         columns = self.listColumns()
         row = dict()
+        row['DT_RowId'] = 0  # this is the first row
         for column in columns:
             row[column['id']] = 'click here to enter data'
         self._annotations['rows'] = [row, ]
 
     def add_row(self):
         """Add a new row."""
+        # get columns and rows
         columns = self.listColumns()
+        rows = self._annotations.get('rows')
+        
+        # prepare new row
         row = dict()
+        row['DT_RowId'] = len(rows)  # add an incremental id to new row
         for column in columns:
             row[column['id']] = 'click here to enter data'
-        rows = self._annotations.get('rows')
+        
+        # save new row
         rows.append(row)
+        self._annotations._p_changed = True
+
+    def delete_row(self, index):
+        """Delete a row."""
+        rows = self._annotations.get('rows')
+        del rows[index]
         self._annotations._p_changed = True
 
     security.declarePrivate('unset')

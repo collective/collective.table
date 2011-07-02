@@ -7,20 +7,13 @@ from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 from ..interfaces import ISource
 
-
 TABLEINIT = u"""\
 (function($) { $(function() {
     var datatable = new collective.table.Table(
         $('#%(fieldName)s-table-datagrid'),
         '%(url)s', %(columns)s);
     var table = datatable.table
-
-    /* Add a click handler for the delete row button */
-    $('#delete-row').click( function() {
-        var anSelected = fnGetSelected( table );        
-        alert('alax call to remove a row: ' + anSelected)
-        
-    } );
+    fnDeleteRowClickHandler(table, '%(url)s')
 
 }); })(jQuery);
 """
@@ -125,4 +118,13 @@ class TableWidget(BrowserView):
 
     def delete_row(self):
         """Delete a single row from our dataset."""
-        pass
+        rows = self.request.get('rows[]')  # TODO: why does jQuery save rows as 'rows[]'?
+        if not rows:
+            return None
+            
+        for row_idx in rows:
+            try:
+                row_idx = int(row_idx)
+            except ValueError:
+                print "Error casting row_idx to int: " + row_idx
+            self.source.delete_row(row_idx)

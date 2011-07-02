@@ -27,7 +27,7 @@ collective.table = (function($) {
                         var sColumnName = self.table.fnSettings().aoColumns[columnId].sName;
                         return {
                             row_id: rowId,                      // numerical id (int) of row
-                            column_name: sColumnName,           // string id (dict key) of column
+                            column_name: sColumnName           // string id (dict key) of column
                         };
                     },
                     height: "14px"      // height of the editing text-field
@@ -47,6 +47,32 @@ collective.table = (function($) {
     };
 })(jQuery);
 
+/* Add a click handler for the delete row button */
+function fnDeleteRowClickHandler( table, url )
+{
+    $('#delete-row').click( function() {
+        var aIds = new Array();
+        var aSelectedRows = fnGetSelected( table );
+
+        // build a list of row indexes of rows to delete
+        for ( var i=0 ; i<aSelectedRows.length ; i++ )
+        {
+            aIds.push(aSelectedRows[i].id);
+        }
+
+        // do a user-blocking ajax request to server to delete rows
+        // in data storage
+        $.ajax({
+            url: url + 'delete_row',
+            async: false,
+            type: 'POST',
+            data: ({rows : aIds})
+           });
+
+        table.fnDraw(); // redraw the table
+    });
+
+}
 
 /* Get the rows which are currently selected */
 function fnGetSelected( table )
@@ -63,3 +89,4 @@ function fnGetSelected( table )
     }
     return aReturn;
 }
+
