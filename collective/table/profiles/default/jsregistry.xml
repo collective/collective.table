@@ -13,9 +13,5 @@
       cookable="True" enabled="1" expression=""
       id="++resource++collective.table/jquery.jeditable.js"
       />
-  <javascript cacheable="True" compression="safe"
-      cookable="True" enabled="1" expression=""
-      id="++resource++collective.table/jquery.dataTables.editable.js"
-      />
 
 </object>
