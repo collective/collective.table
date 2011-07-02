@@ -49,11 +49,20 @@ class TestInstall(TableIntegrationTestCase):
 
         ids = [r.getId() for r in resources]
 
-        self.assertTrue('++resource++jquery.datatables/extras/TableTools/media/ZeroClipboard/ZeroClipboard.js' in ids,
-                        'ZeroClipboard.js not found in portal_css')
+        self.assertTrue('++resource++jquery.datatables.js' in ids,
+                        'jquery.datatables.js not found in portal_javascripts')
 
-        self.assertTrue('++resource++jquery.datatables/extras/TableTools/media/js/TableTools.min.js' in ids,
-                        'ZeroClipboard.js not found in portal_css')
+        self.assertTrue('++resource++collective.table/' \
+                        'jquery.jeditable.js' in ids,
+                        'jquery.jeditable.js not found in portal_javascripts')
+
+        self.assertTrue('++resource++jquery.datatables/extras/TableTools/' \
+                        'media/js/ZeroClipboard.js' in ids,
+                        'ZeroClipboard.js not found in portal_javascripts')
+
+        self.assertTrue('++resource++jquery.datatables/extras/TableTools/' \
+                        'media/js/TableTools.min.js' in ids,
+                        'ZeroClipboard.js not found in portal_javascripts')
 
 
 def test_suite():
