@@ -15,6 +15,7 @@ class BaseSource(Storage):
     title = None
     description = None
     configurationView = None
+    sortable = False
 
     def __init__(self, field, instance):
         self.field = field
