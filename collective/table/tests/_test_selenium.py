@@ -39,4 +39,3 @@ class TestSelenium(TableSeleniumTestCase):
         """Test if Table can be added."""
         self.login()
         open(self.driver, self.portal.absolute_url())
-        import pdb; pdb.set_trace( )

@@ -61,6 +61,7 @@ class TableFunctionalTestCase(unittest.TestCase):
     """
     layer = FUNCTIONAL_TESTING
 
+
 class TableSeleniumTestCase(TableFunctionalTestCase):
     """We use this base class for all functional tests in this package -
     tests that require a full-blown Plone instance for testing.

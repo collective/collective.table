@@ -66,13 +66,13 @@ class LocalSource(BaseSource):
         # get columns and rows
         columns = self.listColumns()
         rows = self._annotations.get('rows')
-        
+
         # prepare new row
         row = dict()
         row['DT_RowId'] = len(rows)  # add an incremental id to new row
         for column in columns:
             row[column['id']] = 'click here to enter data'
-        
+
         # save new row
         rows.append(row)
         self._annotations._p_changed = True

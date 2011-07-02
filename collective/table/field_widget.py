@@ -47,7 +47,7 @@ class DataTableField(ObjectField):
 
     _properties = ObjectField._properties.copy()
     _properties.update({
-        'sourceName' : 'local',
+        'sourceName': 'local',
     })
 
     security.declarePrivate('getSource')
@@ -59,7 +59,8 @@ class DataTableField(ObjectField):
     # things to clean things up
     security.declarePrivate('setStorage')
     def setStorage(self, instance, storage):
-        raise ObjectFieldException, "Not supported, use field.setSource(name) instead"
+        raise ObjectFieldException("Not supported, \
+            use field.setSource(name) instead")
 
     security.declarePrivate('getStorage')
     def getStorage(self, instance=None):
@@ -72,5 +73,5 @@ registerWidget(DataTableWidget,
                 'configuration',
     used_for=('collective.table.field_widget.DataTableField',)
 )
-registerField(DataTableField, 
+registerField(DataTableField,
     title='Data Table', description='Complex data table with flexible sources')

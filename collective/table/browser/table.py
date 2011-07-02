@@ -69,7 +69,8 @@ class TableWidget(BrowserView):
         return self.field.getSource(self.context)
 
     def url(self):
-        return '%s/@@%s/%s/' % (self.context.absolute_url(), self.__name__, self.fieldName)
+        return '%s/@@%s/%s/' % (self.context.absolute_url(),
+                                self.__name__, self.fieldName)
 
     def tableinit(self):
         columndefs = []
@@ -118,10 +119,11 @@ class TableWidget(BrowserView):
 
     def delete_row(self):
         """Delete a single row from our dataset."""
-        rows = self.request.get('rows[]')  # TODO: why does jQuery save rows as 'rows[]'?
+        # TODO: why does jQuery save rows as 'rows[]'?
+        rows = self.request.get('rows[]')
         if not rows:
             return None
-            
+
         for row_idx in rows:
             try:
                 row_idx = int(row_idx)
