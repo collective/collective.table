@@ -32,6 +32,12 @@ class ISource(IStorage):
         description=u'The name of the view used to configure this source',
         required=True)
 
+    manageable = schema.Bool(
+        title=u'Supports manageable features',
+        description=u'True if this source supports manageable features: \
+                      sorting, filtering and pagination',
+        required=True)
+
     def listColumns():
         """Return a sequence of dicts specifying the columns
 

@@ -11,7 +11,7 @@ TABLEINIT = u"""\
 (function($) { $(function() {
     var datatable = new collective.table.Table(
         $('#%(fieldName)s-table-datagrid'),
-        '%(url)s', %(columns)s);
+        '%(url)s', %(columns)s, %(manageable)s);
     var table = datatable.table
     fnDeleteRowClickHandler(table, '%(url)s')
 
@@ -83,9 +83,11 @@ class TableWidget(BrowserView):
         columns = json.dumps(columndefs)
 
         url = self.url()
+        manageable = self.source.manageable and 'true' or 'false'
 
         return TABLEINIT % dict(
-            fieldName=self.fieldName, url=url, columns=columns
+            fieldName=self.fieldName, url=url, columns=columns,
+            manageable=manageable
         )
 
     def json_data(self):
@@ -94,7 +96,6 @@ class TableWidget(BrowserView):
         self.request.response.setHeader('content-type', 'application/json')
         result = json.dumps(dict(
             aaData=self.field.get(self.context),
-            iTotalRecords=self.source.total_entries(),
             sEcho=self.get_sEcho(),
         ))
         return result
