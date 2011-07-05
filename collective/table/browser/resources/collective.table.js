@@ -73,7 +73,8 @@ function fnDeleteRowClickHandler( table, url )
             url: url + 'delete_row',
             async: false,
             type: 'POST',
-            data: ({rows : aIds})
+            data: ({rows : aIds}),
+            traditional: true        // don't store rows key as 'rows[]'
            });
 
         table.fnDraw(); // redraw the table
