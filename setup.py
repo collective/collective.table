@@ -32,6 +32,7 @@ setup(name='collective.table',
       ],
       extras_require={
           'test': [
+              'mock',
               'plone.app.testing',
               'selenium',
            ],
