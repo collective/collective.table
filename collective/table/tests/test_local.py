@@ -54,6 +54,20 @@ class TestIntegration(TableIntegrationTestCase):
         local.setColumns(('foo', 'bar'))
         self.assertEquals(('foo', 'bar'), local._annotations['columns'])
 
+    def test_get(self):
+        """Test that get returns rows from _annotations."""
+        local = self.makeLocalSource()
+        local._annotations['rows'] = ('foo', 'bar')
+        result = local.get('Table', self.portal.table)
+        self.assertEquals(('foo', 'bar'), result)
+
+    @mock.patch('collective.table.local.LocalSource.create_initial_row')
+    def test_get_when_no_rows(self, create_initial_row):
+        """Test that get calls create_initial_row if there are now rows."""
+        local = self.makeLocalSource()
+        local.get('Table', self.portal.table)
+        create_initial_row.assert_called_once_with()
+
     @mock.patch('collective.table.local.LocalSource.listColumns')
     def test_create_initial_row(self, listColumns):
         """Test how initial row is created."""
@@ -67,19 +81,11 @@ class TestIntegration(TableIntegrationTestCase):
                             'foo': 'click here to enter data',
                             'bar': 'click here to enter data'}])
 
-    @mock.patch('collective.table.local.LocalSource.create_initial_row')
-    def test_get_when_no_rows(self, create_initial_row):
-        """Test that get calls create_initial_row if there are now rows."""
-        local = self.makeLocalSource()
-        local.get('Table', self.portal.table)
-        create_initial_row.assert_called_once_with()
+    def test_add_row(self):
+        pass
 
-    def test_get(self):
-        """Test that get returns rows from _annotations."""
-        local = self.makeLocalSource()
-        local._annotations['rows'] = ('foo', 'bar')
-        result = local.get('Table', self.portal.table)
-        self.assertEquals(('foo', 'bar'), result)
+    def test_delete_row(self):
+        pass
 
     def test_update_cell(self):
         """Test that a cell gets updated."""
