@@ -11,8 +11,8 @@ from plone.app.testing import login
 from plone.app.testing import setRoles
 
 
-class TestColumns(TableIntegrationTestCase):
-    """Unit-tests for columns getter/setter methods of local.py."""
+class TestIntegration(TableIntegrationTestCase):
+    """Integration tests for methods of local.py."""
 
     def setUp(self):
         """Custom shared utility setup for tests."""
@@ -53,6 +53,42 @@ class TestColumns(TableIntegrationTestCase):
         local = self.makeLocalSource()
         local.setColumns(('foo', 'bar'))
         self.assertEquals(('foo', 'bar'), local._annotations['columns'])
+
+    @mock.patch('collective.table.local.LocalSource.listColumns')
+    def test_create_initial_row(self, listColumns):
+        """Test how initial row is created."""
+        # make listColums() return some dummy columns
+        listColumns.return_value = (dict(id='foo'), dict(id='bar'))
+
+        local = self.makeLocalSource()
+        local.create_initial_row()
+        self.assertEquals(local._annotations['rows'],
+                          [{'DT_RowId': 0,
+                            'foo': 'click here to enter data',
+                            'bar': 'click here to enter data'}])
+
+    @mock.patch('collective.table.local.LocalSource.create_initial_row')
+    def test_get_when_no_rows(self, create_initial_row):
+        """Test that get calls create_initial_row if there are now rows."""
+        local = self.makeLocalSource()
+        local.get('Table', self.portal.table)
+        create_initial_row.assert_called_once_with()
+
+    def test_get(self):
+        """Test that get returns rows from _annotations."""
+        local = self.makeLocalSource()
+        local._annotations['rows'] = ('foo', 'bar')
+        result = local.get('Table', self.portal.table)
+        self.assertEquals(('foo', 'bar'), result)
+
+    def test_update_cell(self):
+        """Test that a cell gets updated."""
+        local = self.makeLocalSource()
+        local._annotations['columns'] = (dict(id='foo'))
+        local._annotations['rows'] = [dict(foo='bar')]
+
+        local.update_cell(0, 'foo', 'new value')
+        self.assertEquals(local._annotations['rows'], [dict(foo='new value')])
 
 
 def test_suite():
