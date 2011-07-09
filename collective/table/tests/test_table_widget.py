@@ -21,14 +21,12 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
         self.portal.invokeFactory('Table', 'table')
-        
+
     def makeTableWidget(self):
         """Prepare an instance of table widget."""
         from collective.table.browser.table import TableWidget
-        field = mock.Mock(spec="getName sourceName".split())
-        field.getName.return_value = 'table'
         context = self.portal.table
-        widget = TableWidget(context, field)
+        widget = TableWidget(context, None)
         widget.fieldName = 'table'
         return widget
 
@@ -40,25 +38,29 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         return adapter
 
     @mock.patch('collective.table.browser.table.getAdapters')
-    def test_available_sources(self, getAdapters):
-        
+    @mock.patch('collective.table.browser.table.TableWidget.field')
+    def test_available_sources(self, field, getAdapters):
+        """Test retrieving available table sources."""
+
         # create some dummy adapters
         foo = self.makeAdapter('foo')
         bar = self.makeAdapter('bar')
 
         # make zope.interface.getAdapters return our dummy adapters
         getAdapters.return_value = [('foo', foo), ('bar', bar)]
-        
+
+        # mock field() property to return current source id
+        field.sourceName.return_value = 'foo'
+
         # make widget and set foo as current source
         widget = self.makeTableWidget()
-        widget.field.sourceName = 'foo'
-        
+
         # get available sources
         sources = widget.availableSources()
-        
+
         # test output
         self.assertEquals(2, len(sources))
-        
+
         self.assertEquals('foo', sources[0]['id'])
         self.assertEquals('foo title', sources[0]['title'])
         self.assertEquals('foo description', sources[0]['description'])
