@@ -121,7 +121,6 @@ class TableWidget(BrowserView):
 
     def delete_row(self):
         """Delete a single row from our dataset."""
-        # TODO: why does jQuery save rows as 'rows[]'?
         rows = self.request.get('rows')
         if not rows:
             return None
