@@ -71,6 +71,13 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         self.assertEquals('bar description', sources[1]['description'])
         self.assertEquals(False, sources[1]['selected'])
 
+    def test_url(self):
+        """Test how url is constructed."""
+        widget = self.makeTableWidget()
+        widget.__name__ = 'table'
+        self.assertEquals('http://nohost/plone/table/@@table/table/',
+                          widget.url())
+
 
 def test_suite():
     """This sets up a test suite that actually runs the tests in the class
