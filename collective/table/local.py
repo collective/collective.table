@@ -88,8 +88,5 @@ class LocalSource(BaseSource):
     def unset(self, name, instance, **kwargs):
         pass
 
-    security.declarePrivate('total_entries')
-    def total_entries(self):
-        return len(self._annotations.get('rows'))
 
 setSecurity(LocalSource)
