@@ -11,7 +11,7 @@ from plone.app.testing import login
 from plone.app.testing import setRoles
 
 
-class TestIntegration(TableIntegrationTestCase):
+class TestLocalSourceIntegration(TableIntegrationTestCase):
     """Integration tests for methods of local.py."""
 
     def setUp(self):
