@@ -51,6 +51,7 @@ class LocalSource(BaseSource):
     def set(self, name, instance, value, **kwargs):
         pass
 
+    security.declarePrivate('create_initial_row')
     def create_initial_row(self):
         """Fill first row of data with placeholder text. Format:
         dict(col00='foo', col01='bar')
@@ -62,6 +63,7 @@ class LocalSource(BaseSource):
             row[column['id']] = 'click here to enter data'
         self._annotations['rows'] = [row, ]
 
+    security.declarePrivate('add_row')
     def add_row(self):
         """Add a new row."""
         # get columns and rows
@@ -78,6 +80,7 @@ class LocalSource(BaseSource):
         rows.append(row)
         self._annotations._p_changed = True
 
+    security.declarePrivate('delete_row')
     def delete_row(self, index):
         """Delete a row."""
         rows = self._annotations.get('rows')
