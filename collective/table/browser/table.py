@@ -1,11 +1,12 @@
 import json
-from zope import component, interface
+
+from ..interfaces import ISource
+from ZPublisher.BaseRequest import DefaultPublishTraverse
+from zope.component import getAdapters
+from zope.interface import implements
 from zope.publisher.browser import BrowserView
 from zope.publisher.interfaces import IPublishTraverse, NotFound
 from zope.traversing.interfaces import ITraversable, TraversalError
-from ZPublisher.BaseRequest import DefaultPublishTraverse
-
-from ..interfaces import ISource
 
 TABLEINIT = u"""\
 (function($) { $(function() {
@@ -20,7 +21,7 @@ TABLEINIT = u"""\
 
 
 class TableWidget(BrowserView):
-    interface.implements(IPublishTraverse, ITraversable)
+    implements(IPublishTraverse, ITraversable)
 
     fieldName = None
 
@@ -53,7 +54,7 @@ class TableWidget(BrowserView):
         return self.context.Schema()[self.fieldName]
 
     def availableSources(self):
-        adapters = component.getAdapters((self.field, self.context), ISource)
+        adapters = getAdapters((self.field, self.context), ISource)
         current = self.field.sourceName
         sources = []
         for name, source in adapters:
