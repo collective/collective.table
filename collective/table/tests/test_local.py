@@ -22,7 +22,7 @@ class TestLocalSourceIntegration(TableIntegrationTestCase):
         self.portal.invokeFactory('Table', 'table')
 
     def makeLocalSource(self):
-        """Prepare an instance of LocalSource"""
+        """Prepare an instance of LocalSource."""
         from collective.table.local import LocalSource
         field = mock.Mock(spec="getName".split())
         field.getName.return_value = 'table'
