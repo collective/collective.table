@@ -50,7 +50,7 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         getAdapters.return_value = [('foo', foo), ('bar', bar)]
 
         # mock field() property to return current source id
-        field.sourceName.return_value = 'foo'
+        field.sourceName = 'foo'
 
         # make widget and set foo as current source
         widget = self.makeTableWidget()
