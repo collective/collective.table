@@ -117,7 +117,7 @@ class TableWidget(BrowserView):
     def add_row(self):
         """Add a single row to our dataset."""
         self.source.add_row()
-        self.request.RESPONSE.redirect(self.context.absolute_url())
+        self.request.response.redirect(self.context.absolute_url())
 
     def delete_row(self):
         """Delete a single row from our dataset."""
