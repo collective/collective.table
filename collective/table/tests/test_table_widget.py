@@ -180,7 +180,24 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         widget.request = TestRequest(rows=['bad index'])
         self.assertRaises(ValueError, widget.delete_rows())
 
-        
+    @mock.patch('collective.table.browser.table.TableWidget.source')
+    def test_update_cell(self, source):
+        """Test updating a cell."""
+
+        # fill test request with values
+        form = dict(
+            row_id=1,
+            column_name='col01',
+            value='foo'
+            )
+
+        widget = self.makeTableWidget()
+        widget.request = TestRequest(form=form)
+        result = widget.update_cell()
+
+        self.assertEquals('foo', result)
+        source.update_cell.assert_called_once_with(1, 'col01', 'foo')
+
 
 def test_suite():
     """This sets up a test suite that actually runs the tests in the class

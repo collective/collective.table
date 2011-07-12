@@ -108,9 +108,9 @@ class TableWidget(BrowserView):
 
     def update_cell(self):
         """Update a single cell in our dataset."""
-        row_id = int(self.request.row_id)
-        column_name = self.request.column_name
-        value = self.request.value
+        row_id = int(self.request['row_id'])
+        column_name = self.request['column_name']
+        value = self.request['value']
         self.source.update_cell(row_id, column_name, value)
         return value  # jEditable expects the sent value to be returned back
 
