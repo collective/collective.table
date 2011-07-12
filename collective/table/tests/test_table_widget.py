@@ -37,6 +37,10 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         adapter.description = '%s description' % name
         return adapter
 
+    def makeColumn(self, id, title):
+        """Prepare a dummy instance of a table column."""
+        return dict(id=id, title=title)
+
     @mock.patch('collective.table.browser.table.getAdapters')
     @mock.patch('collective.table.browser.table.TableWidget.field')
     def test_available_sources(self, field, getAdapters):
@@ -77,6 +81,41 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         widget.__name__ = 'table'
         self.assertEquals('http://nohost/plone/table/@@table/table/',
                           widget.url())
+
+    @mock.patch('collective.table.browser.table.TableWidget.url')
+    @mock.patch('collective.table.browser.table.TableWidget.source')
+    def test_tableinit(self, source, url):
+        """Test the Javascript that is injected inline and initializes
+        our table."""
+
+        # mock source.listColumns() to return some dummy columns
+        source.listColumns.return_value = [
+            self.makeColumn('foo', 'Foo'),
+            self.makeColumn('bar', 'Bar')
+            ]
+
+        # mock source().manageable property to return True
+        source.manageable = True
+
+        # mock url() property to return some url -> not really important which
+        url.return_value = 'http://foo'
+
+        # get the tableinit result dict
+        widget = self.makeTableWidget()
+        result = widget.tableinit()
+        self.maxDiff = None
+        # test the bleeep out of it
+        expected = u"""\
+(function($) { $(function() {
+    var datatable = new collective.table.Table(
+        $('#table-table-datagrid'),
+        'http://foo', [{"sTitle": "Foo", "sName": "foo", "mDataProp": "foo"}, {"sTitle": "Bar", "sName": "bar", "mDataProp": "bar"}], true);
+    var table = datatable.table
+    fnDeleteRowClickHandler(table, 'http://foo')
+
+}); })(jQuery);
+"""
+        self.assertEquals(expected, result)
 
 
 def test_suite():
