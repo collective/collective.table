@@ -152,6 +152,35 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         widget.request = TestRequest(sEcho=1)
         self.assertEquals(1, widget.get_sEcho())
 
+    @mock.patch('collective.table.browser.table.TableWidget.source')
+    def test_add_row(self, source):
+        """Test adding a new row."""
+        widget = self.makeTableWidget()
+        widget.request = mock.Mock()
+        widget.add_row()
+
+        # test that add_row in data storage was called
+        source.add_row.assert_called_once_with()
+
+        # test that user is redirected back to table
+        widget.request.response.redirect.assert_called_once_with('http://nohost/plone/table')
+
+    @mock.patch('collective.table.browser.table.TableWidget.source')
+    def test_delete_rows(self, source):
+        """Test deleting a row."""
+        widget = self.makeTableWidget()
+        widget.request = TestRequest(rows=[1,3,5])
+        widget.delete_rows()
+        
+        source.delete_rows.assert_called_once_with([1,3,5])
+
+    def test_delete_rows_bad_index(self):
+        """Test deleting a row."""
+        widget = self.makeTableWidget()
+        widget.request = TestRequest(rows=['bad index'])
+        self.assertRaises(ValueError, widget.delete_rows())
+
+        
 
 def test_suite():
     """This sets up a test suite that actually runs the tests in the class

@@ -80,11 +80,12 @@ class LocalSource(BaseSource):
         rows.append(row)
         self._annotations._p_changed = True
 
-    security.declarePrivate('delete_row')
-    def delete_row(self, index):
-        """Delete a row."""
+    security.declarePrivate('delete_rows')
+    def delete_rows(self, idxs):
+        """Delete (multiple) row."""
         rows = self._annotations.get('rows')
-        del rows[index]
+        for index in idxs:
+            del rows[index]
         self._annotations._p_changed = True
 
     security.declarePrivate('unset')

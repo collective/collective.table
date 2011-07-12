@@ -70,7 +70,7 @@ function fnDeleteRowClickHandler( table, url )
         // do a user-blocking ajax request to server to delete rows
         // in data storage
         $.ajax({
-            url: url + 'delete_row',
+            url: url + 'delete_rows',
             async: false,
             type: 'POST',
             data: ({'rows:list' : aIds}),

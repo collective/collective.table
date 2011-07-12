@@ -94,7 +94,7 @@ class TestLocalSourceIntegration(TableIntegrationTestCase):
         self.assertEquals(row['foo'], 'click here to enter data')
         self.assertEquals(row['bar'], 'click here to enter data')
 
-    def test_delete_row(self):
+    def test_delete_rows(self):
         """Test deleting a row."""
         local = self.makeLocalSource()
         local._annotations['rows'] = ['foo', 'bar']
@@ -102,7 +102,7 @@ class TestLocalSourceIntegration(TableIntegrationTestCase):
 
         self.assertEquals(len(rows), 2)
 
-        local.delete_row(1)
+        local.delete_rows([1])
         self.assertEquals(len(rows), 1)
         self.assertEquals(rows, ['foo'])
 

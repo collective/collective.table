@@ -119,15 +119,17 @@ class TableWidget(BrowserView):
         self.source.add_row()
         self.request.response.redirect(self.context.absolute_url())
 
-    def delete_row(self):
-        """Delete a single row from our dataset."""
+    def delete_rows(self):
+        """Deletes (multiple) rows from our dataset."""
         rows = self.request.get('rows')
         if not rows:
             return None
 
+        row_idxs = []
         for row_idx in rows:
             try:
                 row_idx = int(row_idx)
+                row_idxs.append(row_idx)
             except ValueError:
                 print "Error casting row_idx to int: " + row_idx
-            self.source.delete_row(row_idx)
+        self.source.delete_rows(row_idxs)
