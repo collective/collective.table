@@ -169,10 +169,10 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
     def test_delete_rows(self, source):
         """Test deleting a row."""
         widget = self.makeTableWidget()
-        widget.request = TestRequest(rows=[1,3,5])
+        widget.request = TestRequest(rows=[1, 3, 5])
         widget.delete_rows()
-        
-        source.delete_rows.assert_called_once_with([1,3,5])
+
+        source.delete_rows.assert_called_once_with([1, 3, 5])
 
     def test_delete_rows_bad_index(self):
         """Test deleting a row."""
