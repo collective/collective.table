@@ -31,7 +31,7 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         return widget
 
     def makeAdapter(self, name):
-        """Prepare a mocked instance of an adapter."""
+        """Prepare a dummy instance of a ZCA adapter."""
         adapter = mock.Mock(spec="title description".split())
         adapter.title = '%s title' % name
         adapter.description = '%s description' % name
