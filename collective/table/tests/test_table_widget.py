@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """Tests for the table widget."""
 
+import json
 import mock
 import unittest2 as unittest
 
@@ -8,6 +9,7 @@ from plone.app.testing import login
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
+from zope.publisher.browser import TestRequest
 
 from collective.table.tests.base import TableIntegrationTestCase
 
@@ -116,6 +118,32 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
 }); })(jQuery);
 """
         self.assertEquals(expected, result)
+
+    @mock.patch('collective.table.browser.table.TableWidget.field')
+    def test_json_data(self, field):
+        """Test how data from source is sent to our datatables table."""
+
+        rows = [
+            dict(DT_RowId=0, col00='foo1', col01='bar1'),
+            dict(DT_RowId=1, col00='foo2', col01='bar2'),
+            ]
+
+        # mock field.get to return some dummy rows
+        field.get.return_value = rows
+
+        # instantiate widget
+        widget = self.makeTableWidget()
+
+        # use a real request object
+        widget.request = TestRequest(sEcho=1)
+
+        # get json data
+        result = widget.json_data()
+        result = json.loads(result)
+
+        # test
+        self.assertEquals(1, result['sEcho'])
+        self.assertEquals(rows, result['aaData'])
 
 
 def test_suite():
