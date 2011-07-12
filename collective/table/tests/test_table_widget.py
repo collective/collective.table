@@ -145,6 +145,13 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         self.assertEquals(1, result['sEcho'])
         self.assertEquals(rows, result['aaData'])
 
+    def test_get_sEcho(self):
+        """Test sEcho request parameter -> table draw count that is used to
+        prevent XSS attacks."""
+        widget = self.makeTableWidget()
+        widget.request = TestRequest(sEcho=1)
+        self.assertEquals(1, widget.get_sEcho())
+
 
 def test_suite():
     """This sets up a test suite that actually runs the tests in the class
