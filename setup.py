@@ -6,7 +6,7 @@ version = '0.2dev'
 setup(name='collective.table',
       version=version,
       description="Table-like content for Plone",
-      long_description=open("README.rst").read() + "\n" +
+      long_description=open("README").read() + "\n" +
           open(os.path.join("docs", "FUTURE.txt")).read() + "\n" +
           open(os.path.join("docs", "CREDITS.txt")).read() + "\n" +
           open(os.path.join("docs", "HISTORY.txt")).read(),
