@@ -1,3 +1,0 @@
- * add support for Selenium tests
- * unit tests for JS?
- * more scalable storage

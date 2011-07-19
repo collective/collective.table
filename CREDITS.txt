@@ -1,0 +1,8 @@
+Credits
+=======
+
+* `Martijn Pieters <http://www.jarn.com/people/mj>`_ (Jarn AS) is the
+  original author.
+
+* `Nejc Zupan <http://twitter.com/nzupan>`_ (NiteoWeb Ltd.) drove the code
+  towards the first few releases as part of his Google Summer of Code project.
