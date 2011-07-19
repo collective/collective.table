@@ -1,5 +1,5 @@
-Credits
-=======
+Contributors
+============
 
 * `Martijn Pieters <http://www.jarn.com/people/mj>`_ (Jarn AS) is the
   original author.

@@ -1,17 +1,37 @@
-Future
-======
+Roadmap
+=======
 
-Ideas for future features:
+Current status
+--------------
 
-* New types beyond string:
-  * Numeric (float, integer, constraints)
-  * URLs
-  * Date/time
-  * Boolean (checkboxes)
-  * Vocabularies? (selects)
-* SQL integration
-* Search (DataTables supports a search box)
-* i18n: set correct language based on the rest of the page's language.
-* Row / table editing issues to deal with:
-  * insertion of rows in the middle, together with concurrent editing
-  * cell editing, together with concurrent editing
+At this point, collective.table offers only basic functionalities and is somewhat
+usable. It's in alpha stage so storage API *will* change and there will be 
+*no migration path*. Do not use for storing important data just yet!
+
+Milestone `Sauna Sprint`
+------------------------
+
+Both Nejc Zupan (GSoC student) and Martijn Pieters (mentor) will be attending
+the Plone Sauna Sprint 2011. During that week we will focus on the following:
+
+* improve ZODB storage (sorting, filtering, scalability and such)
+* improve UI
+* add more tests (test coverage is already above 85%, btw)
+* unit-tests for Javascript
+
+Milestone `End of GSoC`
+-----------------------
+
+* battle-hardening what we produce during the Sauna Sprint
+* selenium tests, ran regularly with help of jenkins.plone.org
+* improve user and developer documentation
+* export data to csv, etc
+* screencast usage demo
+
+Milestone `future`
+------------------
+
+* column types (numeric, date, boolean, vocabularies, etc.)
+* add SQLAlchemy storage, based on SQLite by default
+* import from csv
+* insertion of rows in the middle, together with concurrent editing
