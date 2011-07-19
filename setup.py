@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '0.1alpha'
+version = '0.2dev'
 
 setup(name='collective.table',
       version=version,
