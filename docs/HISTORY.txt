@@ -1,7 +1,14 @@
 Changelog
 =========
 
-1.0 (unreleased)
+
+0.2 (2011-07-20)
+----------------
+
+* Renamed README.txt to README.rst and added README as a soft-link. [zupo]
+
+
+0.1 (2011-07-19)
 ----------------
 
 * Initial release. [zupo]
