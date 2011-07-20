@@ -84,8 +84,9 @@ class LocalSource(BaseSource):
     def delete_rows(self, idxs):
         """Delete (multiple) row."""
         rows = self._annotations.get('rows')
-        for index in idxs:
-            del rows[index]
+        for index, row in enumerate(rows):
+            if row['DT_RowId'] in idxs:
+                del rows[index]
         self._annotations._p_changed = True
 
     security.declarePrivate('unset')
