@@ -1,19 +1,19 @@
 Changelog
 =========
 
-0.3 (2011-07-20)
-----------------
+0.3aalpha (2011-07-20)
+----------------------
 
 * Fixed a bug with deleting rows. [zupo]
 
 
-0.2 (2011-07-20)
-----------------
+0.2aalpha (2011-07-20)
+----------------------
 
 * Renamed README.txt to README.rst and added README as a soft-link. [zupo]
 
 
-0.1 (2011-07-19)
-----------------
+0.1alpha (2011-07-19)
+---------------------
 
 * Initial release. [zupo]
