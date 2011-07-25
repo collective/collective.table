@@ -1,12 +1,14 @@
-import json
-
-from ..interfaces import ISource
 from ZPublisher.BaseRequest import DefaultPublishTraverse
+from collective.table.interfaces import ISource
 from zope.component import getAdapters
 from zope.interface import implements
 from zope.publisher.browser import BrowserView
-from zope.publisher.interfaces import IPublishTraverse, NotFound
-from zope.traversing.interfaces import ITraversable, TraversalError
+from zope.publisher.interfaces import IPublishTraverse
+from zope.publisher.interfaces import NotFound
+from zope.traversing.interfaces import ITraversable
+from zope.traversing.interfaces import TraversalError
+
+import json
 
 TABLEINIT = u"""\
 (function($) { $(function() {

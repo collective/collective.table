@@ -1,13 +1,13 @@
 # Simple, local ZODB storage of a table
+
+from AccessControl import ClassSecurityInfo
+from Products.Archetypes.utils import setSecurity
+from collective.table import MessageFactory as _
+from collective.table.interfaces import ILocalSource
+from collective.table.source import BaseSource
+from persistent.mapping import PersistentMapping
 from zope import interface
 from zope.annotation.interfaces import IAnnotations
-from AccessControl import ClassSecurityInfo
-from persistent.mapping import PersistentMapping
-from Products.Archetypes.utils import setSecurity
-
-from .interfaces import ILocalSource
-from .source import BaseSource
-from . import MessageFactory as _
 
 
 class LocalSource(BaseSource):

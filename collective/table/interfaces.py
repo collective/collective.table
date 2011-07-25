@@ -1,5 +1,6 @@
+from Products.Archetypes.interfaces import IObjectField
+from Products.Archetypes.interfaces import IStorage
 from zope import schema
-from Products.Archetypes.interfaces import IObjectField, IStorage
 
 
 class ITableField(IObjectField):

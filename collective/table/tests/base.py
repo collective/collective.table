@@ -3,15 +3,15 @@
 
 from __future__ import with_statement
 
-import unittest2 as unittest
-
-from plone.testing import z2
-from plone.app.testing import applyProfile
-from plone.app.testing import IntegrationTesting
 from plone.app.testing import FunctionalTesting
-from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import IntegrationTesting
 from plone.app.testing import PLONE_FIXTURE
+from plone.app.testing import PloneSandboxLayer
+from plone.app.testing import applyProfile
 from plone.app.testing.selenium_layers import SELENIUM_PLONE_FUNCTIONAL_TESTING
+from plone.testing import z2
+
+import unittest2 as unittest
 
 
 class TableLayer(PloneSandboxLayer):

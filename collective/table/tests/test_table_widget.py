@@ -1,17 +1,16 @@
 # -*- coding: utf-8 -*-
 """Tests for the table widget."""
 
+from collective.table.tests.base import TableIntegrationTestCase
+from plone.app.testing import TEST_USER_ID
+from plone.app.testing import TEST_USER_NAME
+from plone.app.testing import login
+from plone.app.testing import setRoles
+from zope.publisher.browser import TestRequest
+
 import json
 import mock
 import unittest2 as unittest
-
-from plone.app.testing import login
-from plone.app.testing import setRoles
-from plone.app.testing import TEST_USER_ID
-from plone.app.testing import TEST_USER_NAME
-from zope.publisher.browser import TestRequest
-
-from collective.table.tests.base import TableIntegrationTestCase
 
 
 class TestTableWidgetIntegration(TableIntegrationTestCase):

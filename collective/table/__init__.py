@@ -1,5 +1,5 @@
+from collective.table import config
 from zope.i18nmessageid import MessageFactory
-from . import config
 
 MessageFactory = MessageFactory('collective.table')
 

@@ -1,12 +1,15 @@
 # To manage expectations, the data table is managed as an archetypes field
-from zope import component, interface
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.exceptions import ObjectFieldException
-from Products.Archetypes.Field import ObjectField
-from Products.Archetypes.Widget import TypesWidget
-from Products.Archetypes.Registry import registerField, registerWidget
 
-from .interfaces import ISource, ITableField
+from AccessControl import ClassSecurityInfo
+from Products.Archetypes.Field import ObjectField
+from Products.Archetypes.Registry import registerField
+from Products.Archetypes.Registry import registerWidget
+from Products.Archetypes.Widget import TypesWidget
+from Products.Archetypes.exceptions import ObjectFieldException
+from collective.table.interfaces import ISource
+from collective.table.interfaces import ITableField
+from zope import component
+from zope import interface
 
 
 class DataTableWidget(TypesWidget):

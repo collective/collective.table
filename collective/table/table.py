@@ -1,9 +1,9 @@
-from Products.Archetypes import atapi
 from Products.ATContentTypes.content import document
-
-from .config import PROJECTNAME
-from .field_widget import DataTableField, DataTableWidget
-from . import MessageFactory as _
+from Products.Archetypes import atapi
+from collective.table import MessageFactory as _
+from collective.table.config import PROJECTNAME
+from collective.table.field_widget import DataTableField
+from collective.table.field_widget import DataTableWidget
 
 
 TableSchema = document.ATDocumentSchema.copy() + atapi.Schema((

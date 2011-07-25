@@ -1,11 +1,11 @@
 # Table data sources are masquerading as Archetypes Storages.
-from zope import component
-from AccessControl import ClassSecurityInfo
-from Products.Archetypes.interfaces import IBaseObject
-from Products.Archetypes.Storage import Storage
-from Products.Archetypes.utils import setSecurity
 
-from .interfaces import ITableField
+from AccessControl import ClassSecurityInfo
+from Products.Archetypes.Storage import Storage
+from Products.Archetypes.interfaces import IBaseObject
+from Products.Archetypes.utils import setSecurity
+from collective.table.interfaces import ITableField
+from zope import component
 
 
 class BaseSource(Storage):

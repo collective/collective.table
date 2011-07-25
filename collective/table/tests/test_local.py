@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 """Tests for local storage."""
 
-import mock
-import unittest2 as unittest
-
 from collective.table.tests.base import TableIntegrationTestCase
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
 from plone.app.testing import login
 from plone.app.testing import setRoles
+
+import mock
+import unittest2 as unittest
 
 
 class TestLocalSourceIntegration(TableIntegrationTestCase):

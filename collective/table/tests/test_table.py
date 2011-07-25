@@ -1,14 +1,12 @@
 # -*- coding: utf-8 -*-
 """Tests for Table content type."""
 
-import unittest2 as unittest
-
-from plone.app.testing import login
-from plone.app.testing import setRoles
+from collective.table.tests.base import TableIntegrationTestCase
 from plone.app.testing import TEST_USER_ID
 from plone.app.testing import TEST_USER_NAME
-
-from collective.table.tests.base import TableIntegrationTestCase
+from plone.app.testing import login
+from plone.app.testing import setRoles
+import unittest2 as unittest
 
 
 class TestTable(TableIntegrationTestCase):
