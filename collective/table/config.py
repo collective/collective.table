@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""Global constants and configuration."""
+
 from Products.CMFCore.permissions import setDefaultRoles
 
 PROJECTNAME = 'collective.table'

@@ -1,4 +1,5 @@
-# Table data sources are masquerading as Archetypes Storages.
+# -*- coding: utf-8 -*-
+"""Table data sources are masquerading as Archetypes Storages."""
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.Storage import Storage

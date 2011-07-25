@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+"""The Table content-type."""
+
+
 from Products.ATContentTypes.content import document
 from Products.Archetypes import atapi
 from collective.table import MessageFactory as _

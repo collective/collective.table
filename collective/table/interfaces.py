@@ -1,3 +1,7 @@
+# -*- coding: utf-8 -*-
+"""Module where all interfaces, events and exceptions live."""
+
+
 from Products.Archetypes.interfaces import IObjectField
 from Products.Archetypes.interfaces import IStorage
 from zope import schema

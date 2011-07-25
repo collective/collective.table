@@ -1,4 +1,5 @@
-# To manage expectations, the data table is managed as an archetypes field
+# -*- coding: utf-8 -*-
+"""To manage expectations, the data table is managed as an archetypes field."""
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.Field import ObjectField

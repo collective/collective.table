@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""The TableWidget that displays and handles the DataTables table."""
+
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 from collective.table.interfaces import ISource
 from zope.component import getAdapters

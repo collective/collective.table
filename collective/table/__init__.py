@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+"""Package initializer."""
+
 from collective.table import config
 from zope.i18nmessageid import MessageFactory
 
