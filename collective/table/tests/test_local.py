@@ -97,14 +97,17 @@ class TestLocalSourceIntegration(TableIntegrationTestCase):
     def test_delete_rows(self):
         """Test deleting a row."""
         local = self.makeLocalSource()
-        local._annotations['rows'] = ['foo', 'bar']
+        local._annotations['rows'] = [
+            dict(id='foo', DT_RowId=1),
+            dict(id='bar', DT_RowId=2),
+            ]
         rows = local._annotations['rows']
 
         self.assertEquals(len(rows), 2)
 
         local.delete_rows([1])
         self.assertEquals(len(rows), 1)
-        self.assertEquals(rows, ['foo'])
+        self.assertEquals(rows, [dict(id='bar', DT_RowId=2)])
 
     def test_update_cell(self):
         """Test that a cell gets updated."""
