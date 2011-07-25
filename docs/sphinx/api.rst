@@ -2,20 +2,32 @@
 API
 ===
 
-.. automodule:: collective.table.browser.table
-    :members: 
+Archetypes DataTable field and widget
+=====================================
 
 .. automodule:: collective.table.field_widget
-    :members: 
+    :members:
+    :undoc-members:
 
-.. automodule:: collective.table.interfaces
-    :members: 
+BrowserView that displays the Table
+===================================
+
+.. automodule:: collective.table.browser.table
+    :members:
+    :undoc-members:
+
+
+Local storage
+=============
 
 .. automodule:: collective.table.local
-    :members: 
+    :members:
+    :undoc-members:
 
-.. automodule:: collective.table.source
-    :members: 
+
+The `Table` content-type
+========================
 
 .. automodule:: collective.table.table
-    :members: 
+    :members:
+    :undoc-members:

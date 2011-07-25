@@ -45,7 +45,7 @@ Un-tested code is broken code.
 
 For every feature you add to the codebase you must also add tests for it.
 
-You can run tests like this::
+You can run tests like this:
 
 .. sourcecode:: bash
 
@@ -70,8 +70,8 @@ Alternatively you can use these two commands to check style manually:
 
 .. sourcecode:: bash
 
-    $ bin/pyflakes collective
-    $ bin/pep8 collective
+    $ bin/pyflakes collective/table
+    $ bin/pep8 collective/table
 
 
 .. _changelog:
@@ -81,9 +81,9 @@ Changelog
 
 We track all feature-level changes to code inside ``docs/HISTORY.txt``. Examples:
 
- - added feature X
- - removed Y
- - fixed bug Z
+- added feature X
+- removed Y
+- fixed bug Z
  
 
 .. _sphinx-docs:
@@ -96,7 +96,7 @@ Un-documented code is broken code.
 For every feature you add to the codebase you must also add documentation
 for it in ``docs/sphinx/``.
 
-After adding documentation, re-build `Sphinx` and check how it is displayed::
+After adding documentation, re-build `Sphinx` and check how it is displayed:
 
 .. sourcecode:: bash
 
@@ -111,3 +111,45 @@ As a stylistic guide: Imports of code from other modules should always be
 alphabetically sorted with no empty lines between imports. The only exception
 to this rule is to keep one empty line between a group of ``from x import y`` and 
 a group of ``import y`` imports.
+
+BAD
+
+.. sourcecode:: python
+
+    import os
+
+    from plone.app.testing import login
+    from collective.table.tests.base import TableIntegrationTestCase
+
+GOOD
+
+.. sourcecode:: python
+
+    from collective.table.tests.base import TableIntegrationTestCase
+    from plone.app.testing import login
+
+    import os
+
+
+Multiple imports
+================
+
+1. Don't use * to import `everything` from a module.
+2. Don't use commas to import multiple stuff on a single line.
+3. Don't use relative paths.
+
+BAD
+
+.. sourcecode:: python
+
+    from collective.table.local import *
+    from collective.table.local import add_row, delete_rows
+    from .local import update_cell
+
+GOOD
+
+.. sourcecode:: python
+
+    from collective.table.local import add_row
+    from collective.table.local import delete_rows
+    from collective.table.local import update_cell
