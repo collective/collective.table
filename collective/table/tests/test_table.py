@@ -21,7 +21,6 @@ class TestTable(TableIntegrationTestCase):
     def test_table_addable(self):
         """Tests if a Table can be added to the site."""
 
-
         setRoles(self.portal, TEST_USER_ID, ['Manager'])
         login(self.portal, TEST_USER_NAME)
         self.portal.invokeFactory('Table', 'table',
