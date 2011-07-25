@@ -27,9 +27,26 @@ Table of Contents
    api.rst
 
 
+Quick start
+===========
+
+If you have a Linux or OS X system already capable of running Plone then a quick start with collective.table is as follows:
+
+.. sourcecode:: bash
+
+   $ git co git@github.com:nzupan/collective.table.git
+   $ cd collective.table/
+   $ virtualenv -p python2.6 --no-site-packages ./
+   $ bin/python bootstrap.py
+   $ bin/buildout
+   $ bin/instance fg
+
+
 .. include:: ../HISTORY.txt
 
 .. include:: ../FUTURE.txt
+
+.. include:: ../CREDITS.txt
 
 
 Indices and tables
