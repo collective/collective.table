@@ -18,9 +18,6 @@ TABLEINIT = u"""\
     var datatable = new collective.table.Table(
         $('#%(fieldName)s-table-datagrid'),
         '%(url)s', %(columns)s, %(editable)s, %(sortable)s, %(queryable)s);
-    var table = datatable.table
-    fnDeleteRowClickHandler(table, '%(url)s')
-
 }); })(jQuery);
 """
 

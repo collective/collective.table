@@ -47,6 +47,23 @@ collective.table = (function($) {
                 });
             }
         });
+
+        table.closest('.dataTables_wrapper').prevAll('.datagrid-delete-row').click( function() {
+            var selected = $(self.table.fnGetNodes()).filter('.row_selected'),
+                ids = $.map(selected, function(row) { return row.id; });
+
+            // do a user-blocking ajax request to server to delete rows
+            // in data storage
+            $.ajax({
+                url: url + 'delete_rows',
+                async: false,
+                type: 'POST',
+                data: ({'rows:list' : aIds}),
+                traditional: true        // don't store rows key as 'rows[]'
+               });
+
+            self.table.fnDraw(); // redraw the table
+        });
     };
 
     $(function() {
@@ -59,48 +76,3 @@ collective.table = (function($) {
         Table: Table
     };
 })(jQuery);
-
-/* Add a click handler for the delete row button */
-function fnDeleteRowClickHandler( table, url )
-{
-    $('#delete-row').click( function() {
-        var aIds = new Array();
-        var aSelectedRows = fnGetSelected( table );
-
-        // build a list of row indexes of rows to delete
-        for ( var i=0 ; i<aSelectedRows.length ; i++ )
-        {
-            aIds.push(aSelectedRows[i].id);
-        }
-
-        // do a user-blocking ajax request to server to delete rows
-        // in data source
-        $.ajax({
-            url: url + 'delete_rows',
-            async: false,
-            type: 'POST',
-            data: ({'rows:list' : aIds}),
-            traditional: true        // don't store rows key as 'rows[]'
-           });
-
-        table.fnDraw(); // redraw the table
-    });
-
-}
-
-/* Get the rows which are currently selected */
-function fnGetSelected( table )
-{
-    var aReturn = new Array();
-    var aTrs = table.fnGetNodes();
-
-    for ( var i=0 ; i<aTrs.length ; i++ )
-    {
-        if ( $(aTrs[i]).hasClass('row_selected') )
-        {
-            aReturn.push( aTrs[i] );
-        }
-    }
-    return aReturn;
-}
-
