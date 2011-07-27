@@ -31,12 +31,13 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         widget.fieldName = 'table'
         return widget
 
-    def makeAdapter(self, name):
+    def makeSource(self, name):
         """Prepare a dummy instance of a ZCA adapter."""
-        adapter = mock.Mock(spec="title description".split())
-        adapter.title = '%s title' % name
-        adapter.description = '%s description' % name
-        return adapter
+        source = mock.Mock(spec="title description".split())
+        source.title = '%s title' % name
+        source.description = '%s description' % name
+        source.configurationView = '@%s_configuration' % name
+        return source
 
     def makeColumn(self, id, title):
         """Prepare a dummy instance of a table column."""
@@ -48,14 +49,14 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         """Test retrieving available table sources."""
 
         # create some dummy adapters
-        foo = self.makeAdapter('foo')
-        bar = self.makeAdapter('bar')
+        foo = self.makeSource('foo')
+        bar = self.makeSource('bar')
 
         # make zope.interface.getAdapters return our dummy adapters
         getAdapters.return_value = [('foo', foo), ('bar', bar)]
 
-        # mock field() property to return current source id
-        field.sourceName = 'foo'
+        # mock field() to return current source id
+        field.getSourceName.return_value = 'foo'
 
         # make widget and set foo as current source
         widget = self.makeTableWidget()
