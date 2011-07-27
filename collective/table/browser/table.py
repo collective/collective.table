@@ -60,7 +60,7 @@ class TableWidget(BrowserView):
 
     def availableSources(self):
         adapters = getAdapters((self.field, self.context), ISource)
-        current = self.field.sourceName
+        current = self.field.getSourceName(self.context)
         sources = []
         for name, source in adapters:
             sources.append(dict(

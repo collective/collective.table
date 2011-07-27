@@ -36,7 +36,7 @@
              class="noborder blurrable"
           tal:attributes="
               name string:$fieldName.sourceName;
-              id string:dataTable-sourceName-$fieldName-${source/id};
+              id string:dataTable-$fieldName-${source/id};
               value source/id;
               checked python:source['selected'] or None;"
           />
