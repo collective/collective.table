@@ -35,3 +35,4 @@ Milestone `future`
 * add SQLAlchemy storage, based on SQLite by default
 * import from csv
 * insertion of rows in the middle, together with concurrent editing
+* PloneFormGen integration
