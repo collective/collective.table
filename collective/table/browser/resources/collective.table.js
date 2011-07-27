@@ -49,6 +49,12 @@ collective.table = (function($) {
         });
     };
 
+    $(function() {
+        $('.collective_table_source_config').click(function() {
+            var configView = $(this).closest('.collective_table_config').find(':radio:checked').data('configurationView');
+        });
+    });
+
     return {
         Table: Table
     };

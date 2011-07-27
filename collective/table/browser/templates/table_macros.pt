@@ -24,37 +24,32 @@
 
 <metal:edit_macro define-macro="edit">
 <metal:use use-macro="field_macro | context/widgets/field/macros/edit">
-<div metal:fill-slot="widget_body" tal:define="
+<div class="collective_table_config"
+     metal:fill-slot="widget_body" tal:define="
     view python:path('nocall:context/@@collective.table.widgets/%s' % fieldName);
     sources view/availableSources">
 
-  <tal:if condition="python:len(sources) > 1">
   <label i18n:translate="label_datasource">Data Source</label>
-  <div class="formHelp">Select a source for the data table information.</div>
+  <div class="formHelp">Select a source for the data table information then
+    <a href="#" class="collective_table_source_config">click here to configure it</a>.</div>
   <div class="dataTable-selectSourceName" tal:repeat="source sources">
       <input type="radio" name="field.sourceName" id="dataTable-sourceName-id"
-             class="noborder blurrable"
+             class="noborder blurrable collective_table_source" data-configurationView=""
           tal:attributes="
               name string:$fieldName.sourceName;
               id string:dataTable-$fieldName-${source/id};
               value source/id;
+              data-configurationView source/configurationView;
               checked python:source['selected'] or None;"
           />
       <label for="dataTable-sourceName-id" tal:attributes="
-             for string:dataTable-sourceName-$fieldName-${source/id}"
+             for string:dataTable-$fieldName-${source/id}"
              tal:content="source/title">Source Title</label>
       <div class="dataTable-selectSourceName-help" tal:content="source/description">
           Longer source description
       </div>
   </div>
-  </tal:if>
 
-  <tal:comment condition="python:False">
-    XXX: the following is going to be replaced by per-source configuration.
-    This is a simple form to configure a local source, when we have multiple
-    source implementations each source will provide a form in a pop-up, or
-    in case of only one registered source, an inlined form right here.
-  </tal:comment>
   <label for="dataTable-local-columns-id" tal:attributes="
          for string:dataTable-local-columns-$fieldName"
          i18n:translate="label_local_columns">Table columns</label><br/>

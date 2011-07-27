@@ -66,6 +66,7 @@ class TableWidget(BrowserView):
             sources.append(dict(
                 id=name, title=source.title,
                 description=source.description,
+                configurationView=source.configurationView,
                 selected=(name == current)
             ))
         return sources
