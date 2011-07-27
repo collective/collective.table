@@ -30,7 +30,8 @@ class TestTable(TableIntegrationTestCase):
         table = self.portal.table
         self.assertEquals(table.Title(), "Table Title")
         self.assertEquals(table.Description(), "Table Description")
-        self.assertEquals(table.getText(), "<p>&lt;b&gt;Table&lt;/b&gt; Text</p>")
+        self.assertEquals(table.getText(),
+                          "<p>&lt;b&gt;Table&lt;/b&gt; Text</p>")
 
 
 def test_suite():

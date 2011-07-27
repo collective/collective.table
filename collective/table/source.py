@@ -16,7 +16,9 @@ class BaseSource(Storage):
     title = None
     description = None
     configurationView = None
-    manageable = False
+    editable = False
+    sortable = False
+    queryable = False
 
     def __init__(self, field, instance):
         self.field = field

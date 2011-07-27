@@ -20,7 +20,9 @@ class LocalSource(BaseSource):
         default=u'The rows for a local table are stored locally with the '
                 u'content item')
     configurationView = '@@local-config'
-    manageable = False
+    editable = True
+    sortable = False
+    queryable = False
 
     @property
     def _annotations(self):

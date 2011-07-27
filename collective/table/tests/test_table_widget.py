@@ -95,8 +95,10 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
             self.makeColumn('bar', 'Bar')
             ]
 
-        # mock source().manageable property to return True
-        source.manageable = True
+        # mock source() properties to return True
+        source.editable = True
+        source.sortable = True
+        source.queryable = True
 
         # mock url() property to return some url -> not really important which
         url.return_value = 'http://foo'
@@ -110,7 +112,7 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
 (function($) { $(function() {
     var datatable = new collective.table.Table(
         $('#table-table-datagrid'),
-        'http://foo', [{"sTitle": "Foo", "sName": "foo", "mDataProp": "foo"}, {"sTitle": "Bar", "sName": "bar", "mDataProp": "bar"}], true);
+        'http://foo', [{"sTitle": "Foo", "sName": "foo", "mDataProp": "foo"}, {"sTitle": "Bar", "sName": "bar", "mDataProp": "bar"}], true, true, true);
     var table = datatable.table
     fnDeleteRowClickHandler(table, 'http://foo')
 

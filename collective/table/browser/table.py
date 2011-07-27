@@ -17,7 +17,7 @@ TABLEINIT = u"""\
 (function($) { $(function() {
     var datatable = new collective.table.Table(
         $('#%(fieldName)s-table-datagrid'),
-        '%(url)s', %(columns)s, %(manageable)s);
+        '%(url)s', %(columns)s, %(editable)s, %(sortable)s, %(queryable)s);
     var table = datatable.table
     fnDeleteRowClickHandler(table, '%(url)s')
 
@@ -88,12 +88,13 @@ class TableWidget(BrowserView):
             ))
         columns = json.dumps(columndefs)
 
-        url = self.url()
-        manageable = self.source.manageable and 'true' or 'false'
-
         return TABLEINIT % dict(
-            fieldName=self.fieldName, url=url, columns=columns,
-            manageable=manageable
+            fieldName=self.fieldName,
+            url=self.url(),
+            columns=columns,
+            editable=self.source.editable and 'true' or 'false',
+            sortable=self.source.sortable and 'true' or 'false',
+            queryable=self.source.queryable and 'true' or 'false',
         )
 
     def json_data(self):
