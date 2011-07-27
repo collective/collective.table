@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Tests for local storage."""
+"""Tests for local source."""
 
 from collective.table.tests.base import TableIntegrationTestCase
 from plone.app.testing import TEST_USER_ID

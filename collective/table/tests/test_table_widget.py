@@ -161,7 +161,7 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
         widget.request = mock.Mock()
         widget.add_row()
 
-        # test that add_row in data storage was called
+        # test that add_row in data source was called
         source.add_row.assert_called_once_with()
 
         # test that user is redirected back to table

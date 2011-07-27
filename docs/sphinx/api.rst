@@ -17,8 +17,8 @@ BrowserView that displays the Table
     :undoc-members:
 
 
-Local storage
-=============
+Local source
+============
 
 .. automodule:: collective.table.local
     :members:

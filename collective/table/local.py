@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Simple, local ZODB storage of a table."""
+"""Simple, local ZODB source of a table."""
 
 from AccessControl import ClassSecurityInfo
 from Products.Archetypes.utils import setSecurity

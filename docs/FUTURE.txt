@@ -14,7 +14,7 @@ Milestone `Sauna Sprint`
 Both Nejc Zupan (GSoC student) and Martijn Pieters (mentor) will be attending
 the Plone Sauna Sprint 2011. During that week we will focus on the following:
 
-* improve ZODB storage (sorting, filtering, scalability and such)
+* improve ZODB source (sorting, filtering, scalability and such)
 * improve UI
 * add more tests (test coverage is already above 85%, btw)
 * unit-tests for Javascript
@@ -32,7 +32,7 @@ Milestone `future`
 ------------------
 
 * column types (numeric, date, boolean, vocabularies, etc.)
-* add SQLAlchemy storage, based on SQLite by default
+* add SQLAlchemy source, based on SQLite by default
 * import from csv
 * insertion of rows in the middle, together with concurrent editing
 * PloneFormGen integration

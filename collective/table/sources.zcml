@@ -4,7 +4,7 @@
     i18n_domain="collective.table"
     >
 
-<!-- Simple ZODB storage -->
+<!-- Simple ZODB source -->
 <adapter name="local" factory=".local.LocalSource" />
 
 </configure>
