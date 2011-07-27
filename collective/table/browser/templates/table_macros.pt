@@ -65,8 +65,6 @@
     tal:content="python:'\n'.join(c['title'] for c in view.source.listColumns())">
   </textarea>
 
-  <input name="" value="__ignored__" type="hidden"
-        tal:attributes="name fieldName"/>
 </div>
 </metal:use>
 </metal:edit_macro>
