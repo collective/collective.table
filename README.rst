@@ -11,6 +11,9 @@ write storage adapters to have data stored in SQL, LDAP, etc.
 collective.table is based on `DataTables <http://datatables.net>`_ and
 `jEditable <http://www.appelsiini.net/projects/jeditable>`_ jQuery plugins.
 
+Developer documentation is available at `ReadTheDocs.org
+<http://readthedocs.org/docs/collectivetable/en/latest/>`_.
+
 
 Installation
 ============
