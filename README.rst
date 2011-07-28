@@ -18,9 +18,9 @@ Developer documentation is available at `ReadTheDocs.org
 Installation
 ============
 
-To install collective.table you simply add "collective.table" to the list of
+To install collective.table you simply add ``collective.table`` to the list of
 eggs in your buildout, run buildout and restart the Plone server. In Plone's
-portal_quickinstaller you select "collective.table" and install it.
+portal_quickinstaller you select ``collective.table`` and install it.
 
 Now you can add a Table content-type and start adding your tabular data.
 
