@@ -99,9 +99,14 @@ class TableWidget(BrowserView):
         """Return data from the source"""
 
         self.request.response.setHeader('content-type', 'application/json')
+        start = int(self.request.get('iDisplayStart', 0))
+        end = start + int(self.request.get('iDisplayLength', 10))
+        data = self.field.get(self.context)
         result = json.dumps(dict(
-            aaData=self.field.get(self.context),
+            aaData=data[start:end],
             sEcho=self.get_sEcho(),
+            iTotalRecords=len(data),
+            iTotalDisplayRecords=len(data),
         ))
         return result
 
