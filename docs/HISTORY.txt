@@ -1,6 +1,24 @@
 Changelog
 =========
 
+0.4alpha (unreleased)
+----------------------
+
+* Added project to ReadTheDocs.org. [zupo]
+* Refactored row deletion handling. [MJ]
+* Support for multiple tables is back. [MJ]
+* Move the versions section to re-enable the mr.developer entries. [MJ]
+* Refactored usage of ``storage`` into ``source`` to avoid confusing them with
+  Archetypes storages. [zupo]
+* Save source name per context, not globally on the field. [zupo]
+* Split ``manageable`` flag into ``editable``, ``sortable`` and
+  ``queryable`` flags. [zupo]
+* Added shebangs and module-level docstrings. [zupo]
+* Added a script to do pre-commit checks. [zupo]
+* PEP8 and PyFlakes cleanup. [zupo]
+* Added Sphinx documentation. [zupo]
+
+
 0.3alpha (2011-07-20)
 ----------------------
 
@@ -10,7 +28,8 @@ Changelog
 0.2alpha (2011-07-20)
 ----------------------
 
-* Renamed README.txt to README.rst and added README as a soft-link. [zupo]
+* Renamed ``README.txt`` to ``README.rst`` and added ``README`` as a
+  soft-link. [zupo]
 
 
 0.1alpha (2011-07-19)

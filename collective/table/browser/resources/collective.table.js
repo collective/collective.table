@@ -21,8 +21,6 @@ collective.table = (function($) {
             bSort: sortable,
             bFilter: queryable,
             
-            bInfo: true,              // TODO
-            bPaginate: true,          // TODO
             bProcessing: true,        // display of a 'processing' indicator
             bServerSide: true,        // make an XHR request to the server for each draw of the information on the page
             aoColumns: columns,       // give DataTables specific instructions for each individual column -> don't read from DOM

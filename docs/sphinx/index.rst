@@ -1,20 +1,24 @@
-.. collective.table documentation master file, created by
-   sphinx-quickstart on Tue June 14 19:10:04 2010.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to collective.table's documentation!
-================================================================
+============================================
+Developer documentation for collective.table
+============================================
 
 :Project title: collective.table
-:Latest version: |release|
-:URL: http://pypi.python.org/pypi/collective.table
+:Latest version: 0.3
+:Project page: http://pypi.python.org/pypi/collective.table
+:Source: http://github.com/nzupan/collective.table
 
 """"""""""""""""""""""""""""""""
 
 .. topic:: Summary
 
-    This is a Plone 4 add-on project for storing tabular data inside Plone.
+    This is a Plone 4 add-on project for storing tabular data inside Plone,
+    replacing the "store equipment lists, book loans, etc. in Excel files and
+    upload to Plone". It's a list of items where members can add/edit columns
+    and rows and of course data. By default, collective.table stores it's data
+    in the ZODB, however storage is pluggable and it's easy to write storage
+    adapters to have data stored in SQL, LDAP, etc. It is based on `DataTables
+    <http://datatables.net>`_ and `jEditable
+    <http://www.appelsiini.net/projects/jeditable>`_ jQuery plugins.
 
 Table of Contents
 =================
@@ -30,11 +34,12 @@ Table of Contents
 Quick start
 ===========
 
-If you have a Linux or OS X system already capable of running Plone then a quick start with collective.table is as follows:
+If you have a Linux or OS X system already capable of running Plone then a
+quick start with `collective.table` is as follows:
 
 .. sourcecode:: bash
 
-   $ git co git@github.com:nzupan/collective.table.git
+   $ git checkout git@github.com:nzupan/collective.table.git
    $ cd collective.table/
    $ virtualenv -p python2.6 --no-site-packages ./
    $ bin/python bootstrap.py

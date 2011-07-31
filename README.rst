@@ -11,13 +11,16 @@ write storage adapters to have data stored in SQL, LDAP, etc.
 collective.table is based on `DataTables <http://datatables.net>`_ and
 `jEditable <http://www.appelsiini.net/projects/jeditable>`_ jQuery plugins.
 
+Developer documentation is available at `ReadTheDocs.org
+<http://readthedocs.org/docs/collectivetable/en/latest/>`_.
+
 
 Installation
 ============
 
-To install collective.table you simply add "collective.table" to the list of
+To install collective.table you simply add ``collective.table`` to the list of
 eggs in your buildout, run buildout and restart the Plone server. In Plone's
-portal_quickinstaller you select "collective.table" and install it.
+portal_quickinstaller you select ``collective.table`` and install it.
 
 Now you can add a Table content-type and start adding your tabular data.
 
