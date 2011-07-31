@@ -31,7 +31,8 @@
 
   <label i18n:translate="label_datasource">Data Source</label>
   <div class="formHelp">Select a source for the data table information then
-    <a href="#" class="collective_table_source_config">click here to configure it</a>.</div>
+    <a href="#" class="collective_table_source_config"
+       tal:attributes="href string:#$fieldName">click here to configure it</a>.</div>
   <div class="dataTable-selectSourceName" tal:repeat="source sources">
       <input type="radio" name="field.sourceName" id="dataTable-sourceName-id"
              class="noborder blurrable collective_table_source" data-configurationView=""
@@ -49,16 +50,10 @@
           Longer source description
       </div>
   </div>
-
-  <label for="dataTable-local-columns-id" tal:attributes="
-         for string:dataTable-local-columns-$fieldName"
-         i18n:translate="label_local_columns">Table columns</label><br/>
-  <textarea class="bularrable firstToFocus" cols="40" rows="5" name=""
-    id="dataTable-local-columns-id"
-    tal:attributes="name string:$fieldName.local.columns:ustring;
-                    id string:dataTable-local-columns-$fieldName"
-    tal:content="python:'\n'.join(c['title'] for c in view.source.listColumns())">
-  </textarea>
+  <div id="dataTable-field-sourceConfig"
+       class="collective_table_source_configuration"
+       tal:attributes="id string:dataTable-$fieldName-sourceConfig"
+       ></div>
 
   <input name="" value="__ignored__" type="hidden"
       tal:attributes="name fieldName"/>

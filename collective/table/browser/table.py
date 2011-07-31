@@ -59,11 +59,12 @@ class TableWidget(BrowserView):
         adapters = getAdapters((self.field, self.context), ISource)
         current = self.field.getSourceName(self.context)
         sources = []
+        configURL = '%s/%%s/%s' % (self.context.absolute_url(), self.fieldName)
         for name, source in adapters:
             sources.append(dict(
                 id=name, title=source.title,
                 description=source.description,
-                configurationView=source.configurationView,
+                configurationView=configURL % source.configurationView,
                 selected=(name == current)
             ))
         return sources

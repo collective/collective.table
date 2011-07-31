@@ -31,19 +31,12 @@ class DataTableWidget(TypesWidget):
             raise Exception('we need to set the source')
         field.setSourceName(instance, sourceName)
 
-        # This should be handled at the source level, but until we have more
-        # than one, it'll do here.
-        columndefs = form.get('%s.local.columns' % field.getName())
-        if columndefs is not None:
-            columns = []
-            counter = 0
-            for line in columndefs.splitlines():
-                title = line.strip()
-                if not title:
-                    continue
-                columns.append(dict(id='col%02d' % counter, title=title))
-                counter += 1
-            field.getSource(instance).setColumns(columns)
+        configView = field.getSource(instance).configurationView
+        config = instance.unrestrictedTraverse('%s/%s' % (configView, field.getName()))
+        config.form_instance.update()
+        changes = config.form_instance.applyChanges() # Extracts it's own form fields from the request
+        # XXX: Handle changes = None and config.formErrorsMessage being set == ERROR
+
         return TypesWidget.process_form(self, instance, field, form, **kw)
 
 

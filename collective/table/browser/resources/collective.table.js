@@ -2,6 +2,9 @@ if (typeof(collective) == 'undefined')
     collective = {};
 collective.table = (function($) {
 
+    //
+    // Table view handling
+    //
     var Table = function(table, url, columns, editable, sortable, queryable) {
         var self = this;
         var swf_url = portal_url + "/++resource++jquery.datatables/extras/TableTools/" +
@@ -66,10 +69,69 @@ collective.table = (function($) {
         });
     };
 
+
+    //
+    // Table configuration handling
+    //
     $(function() {
-        $('.collective_table_source_config').click(function() {
-            var configView = $(this).closest('.collective_table_config').find(':radio:checked').data('configurationView');
-        });
+        var configOpenLinks = $('a.collective_table_source_config');
+        if (configOpenLinks.length) {
+            // For each 'source configuration link', attach an overlay that'll
+            // load the source config view, and attach a handler to the source
+            // selection radios to set what view will be loaded. Handle data
+            // from the form so we can save it together with the overall
+            // Archetypes edit form POST.
+            configOpenLinks.each(function() {
+                var self = $(this),
+                    tableConfig = self.closest('.collective_table_config'),
+                    sourceConfig = tableConfig.find('div.collective_table_source_configuration');
+                self.prepOverlay({
+                    subtype: 'ajax',
+                    formselector: '#content-core form',
+                    beforepost: function(form, data) {
+                        // Remember the form parameters for POST-ing
+                        sourceConfig.empty();
+                        $.each(data, function() {
+                            sourceConfig.append(
+                                $('<input type="hidden" name="' + this.name + '"/>')
+                                    .val(this.value));
+                        });
+                        tableConfig.find(':radio:checked').data('currentConfig', $.param(data));
+                        sourceChange();
+                        form.closest('.overlay-ajax').overlay().close();
+                        return false;
+                    },
+                    config: {
+                        onBeforeLoad: function() {
+                            // plone.app.z3cform includes form unloading protection
+                            // by default, remove this protection again on load.
+                            var tool = window.onbeforeunload && window.onbeforeunload.tool;
+                            if (tool) {
+                                tool.removeForms.apply(tool, this.getOverlay().get(0));
+                            }
+                            return true;
+                        }
+                    }
+                });
+                function sourceChange() {
+                    var selected = tableConfig.find(':radio:checked'),
+                        currentConfig = selected.data('currentConfig'),
+                        configView = selected.data('configurationView'),
+                        pbo = self.data('pbo');
+                    if (currentConfig) configView = configView + '?' + currentConfig;
+
+                    if (typeof(pbo) != 'undefined') {
+                        // collective.js.jquerytools 1.2 and up
+                        pbo.src = configView;
+                    } else {
+                        // collective.js.jquerytools < 1.2
+                        $(self.attr('rel')).data('target') = configView;
+                    }                    
+                }
+                tableConfig.find(':radio').change(sourceChange);
+                sourceChange();
+            });
+        }
     });
 
     return {

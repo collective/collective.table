@@ -19,4 +19,11 @@
     allowed_attributes="json_data update_cell add_row delete_rows"
     />
 
+<page
+    for="Products.Archetypes.interfaces.IBaseObject"
+    name="collective.table.localconfig"
+    class=".local.LocalSourceConfigurationView"
+    permission="cmf.ModifyPortalContent"
+    />
+
 </configure>

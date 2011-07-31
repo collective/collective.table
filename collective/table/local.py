@@ -19,7 +19,7 @@ class LocalSource(BaseSource):
     description = _(u'description_localsource',
         default=u'The rows for a local table are stored locally with the '
                 u'content item')
-    configurationView = '@@local-config'
+    configurationView = '@@collective.table.localconfig'
     editable = True
     sortable = False
     queryable = False
