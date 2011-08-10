@@ -114,9 +114,6 @@ class TestTableWidgetIntegration(TableIntegrationTestCase):
     var datatable = new collective.table.Table(
         $('#table-table-datagrid'),
         'http://foo', [{"sTitle": "Foo", "sName": "foo", "mDataProp": "foo"}, {"sTitle": "Bar", "sName": "bar", "mDataProp": "bar"}], true, true, true);
-    var table = datatable.table
-    fnDeleteRowClickHandler(table, 'http://foo')
-
 }); })(jQuery);
 """
         self.assertEquals(expected, result)
