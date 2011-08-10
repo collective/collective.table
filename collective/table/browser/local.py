@@ -3,14 +3,8 @@ from z3c.form import field
 from zope import interface, schema
 
 from collective.table import MessageFactory as _
+from collective.table.interfaces import ILocalSourceConfiguration
 
-
-class ILocalSourceConfiguration(interface.Interface):
-    columns = schema.List(
-        title=_(u'Columns'),
-        value_type=schema.TextLine(title=_(u'Column')),
-        default=[u'Column 1', u'Column 2']
-    )
 
 class LocalSourceConfigurationForm(BaseSourceConfigurationForm):
     fields = field.Fields(ILocalSourceConfiguration)

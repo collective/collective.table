@@ -4,7 +4,9 @@
 
 from Products.Archetypes.interfaces import IObjectField
 from Products.Archetypes.interfaces import IStorage
+from zope.interface import Interface
 from zope import schema
+from collective.table import MessageFactory as _
 
 
 class ITableField(IObjectField):
@@ -19,7 +21,6 @@ class ISource(IStorage):
 
     Concrete subclasses of this interface, registered as named adapters for
     ITable, are listed on the edit tab as source types to select from.
-
     """
 
     title = schema.TextLine(
@@ -68,4 +69,23 @@ class ISource(IStorage):
 
 
 class ILocalSource(ISource):
+    pass
+
+
+class ISourceConfiguration(Interface):
+    """Base source configuration adapter interface.
+
+    Concrete subclasses of this interface, are used to configure their
+	ISource sources.
+    """
+
+    columns = schema.List(
+        title=_(u'Columns'),
+        description=_(u'Specify the list of columns used in this table'),
+        value_type=schema.TextLine(title=_(u'Column')),
+        default=[u'Column 1', u'Column 2']
+    )
+
+
+class ILocalSourceConfiguration(ISourceConfiguration):
     pass
