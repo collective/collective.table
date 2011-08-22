@@ -4,6 +4,9 @@ Changelog
 0.4alpha (unreleased)
 ----------------------
 
+* Added support for localizations. [zupo]
+* More cleanup. [zupo]
+* Added support for source configuration view. [MJ]
 * Added project to ReadTheDocs.org. [zupo]
 * Refactored row deletion handling. [MJ]
 * Support for multiple tables is back. [MJ]

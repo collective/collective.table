@@ -4,35 +4,15 @@ Roadmap
 Current status
 --------------
 
-At this point, collective.table offers only basic functionalities and is somewhat
-usable. It's in alpha stage so storage API *will* change and there will be 
-*no migration path*. Do not use for storing important data just yet!
+At this point, collective.table offers basic functionalities and is usable. It
+can be used as an out-of-the-box product for end-users or as a third-party
+Archetypes widget for custom content-types.
 
-Milestone `Sauna Sprint`
-------------------------
 
-Both Nejc Zupan (GSoC student) and Martijn Pieters (mentor) will be attending
-the Plone Sauna Sprint 2011. During that week we will focus on the following:
+Future
+------
 
-* improve ZODB source (sorting, filtering, scalability and such)
-* improve UI
-* add more tests (test coverage is already above 85%, btw)
-* unit-tests for Javascript
-
-Milestone `End of GSoC`
------------------------
-
-* battle-hardening what we produce during the Sauna Sprint
-* selenium tests, ran regularly with help of jenkins.plone.org
-* improve user and developer documentation
-* export data to csv, etc
-* screencast usage demo
-
-Milestone `future`
-------------------
-
-* column types (numeric, date, boolean, vocabularies, etc.)
-* add SQLAlchemy source, based on SQLite by default
-* import from csv
-* insertion of rows in the middle, together with concurrent editing
-* PloneFormGen integration
+Being pluggable as it is, we expect more people to use it with their own
+content-types on their own custom data sources. Hopefully some that code will
+propagate back into the community so we can have multiple source possibilities
+in the future. UI could also use some more love.
