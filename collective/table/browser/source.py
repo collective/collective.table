@@ -1,10 +1,12 @@
-from zope import component, interface, publisher, traversing
-from z3c.form import form, button
-from ZPublisher.BaseRequest import DefaultPublishTraverse
-from plone.z3cform import layout
+# -*- coding: utf-8 -*-
+"""Base Source configuration, serving as an example for other sources."""
 
+from ZPublisher.BaseRequest import DefaultPublishTraverse
 from collective.table import MessageFactory as _
 from collective.table.interfaces import ISource
+from plone.z3cform import layout
+from z3c.form import form, button
+from zope import component, interface, publisher, traversing
 
 
 class BaseSourceConfigurationForm(form.Form):

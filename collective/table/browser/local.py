@@ -1,9 +1,10 @@
-from source import BaseSourceConfigurationForm, wrap_form
-from z3c.form import field
-from zope import interface, schema
+# -*- coding: utf-8 -*-
+"""Local Source configuration."""
 
 from collective.table import MessageFactory as _
 from collective.table.interfaces import ILocalSourceConfiguration
+from source import BaseSourceConfigurationForm, wrap_form
+from z3c.form import field
 
 
 class LocalSourceConfigurationForm(BaseSourceConfigurationForm):

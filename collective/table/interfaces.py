@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 """Module where all interfaces, events and exceptions live."""
 
-
 from Products.Archetypes.interfaces import IObjectField
 from Products.Archetypes.interfaces import IStorage
-from zope.interface import Interface
-from zope import schema
 from collective.table import MessageFactory as _
+from zope import schema
+from zope.interface import Interface
 
 
 class ITableField(IObjectField):
