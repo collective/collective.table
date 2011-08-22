@@ -32,9 +32,12 @@ class DataTableWidget(TypesWidget):
         field.setSourceName(instance, sourceName)
 
         configView = field.getSource(instance).configurationView
-        config = instance.unrestrictedTraverse('%s/%s' % (configView, field.getName()))
+        config = instance.unrestrictedTraverse(
+            '%s/%s' % (configView, field.getName()))
         config.form_instance.update()
-        changes = config.form_instance.applyChanges() # Extracts it's own form fields from the request
+
+        # Extract your own form fields from the request
+        changes = config.form_instance.applyChanges()
         # XXX: Handle changes = None and config.formErrorsMessage being set == ERROR
 
         return TypesWidget.process_form(self, instance, field, form, **kw)
@@ -53,13 +56,19 @@ class DataTableField(ObjectField):
     security.declarePrivate('setSourceName')
     def setSourceName(self, instance, value):
         """Set the name of the data source you want to use in this context."""
-        mapping = IAnnotations(instance).setdefault('collective.table', PersistentMapping())
+        mapping = IAnnotations(instance).setdefault(
+            'collective.table',
+            PersistentMapping()
+        )
         mapping['source_name'] = value
 
     security.declarePrivate('getSourceName')
     def getSourceName(self, instance):
         """Get the name of the data source that is used in this context."""
-        mapping = IAnnotations(instance).setdefault('collective.table', PersistentMapping())
+        mapping = IAnnotations(instance).setdefault(
+            'collective.table',
+            PersistentMapping()
+        )
         return mapping.get('source_name', self.defaultSourceName)
 
     security.declarePrivate('getSource')
