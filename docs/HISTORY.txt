@@ -1,8 +1,13 @@
 Changelog
 =========
 
-0.4alpha (unreleased)
-----------------------
+1.0.1 (2011-08-22)
+------------------
+
+* Newline was missing in Future.rst. [zupo]
+
+1.0 (2011-08-22)
+----------------
 
 * Added support for localizations. [zupo]
 * More cleanup. [zupo]
