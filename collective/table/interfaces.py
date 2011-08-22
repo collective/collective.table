@@ -67,10 +67,6 @@ class ISource(IStorage):
         """
 
 
-class ILocalSource(ISource):
-    pass
-
-
 class ISourceConfiguration(Interface):
     """Base source configuration adapter interface.
 
@@ -80,8 +76,13 @@ class ISourceConfiguration(Interface):
     pass
 
 
+class ILocalSource(ISource):
+    """Local Source adapter interface."""
+    pass
+
+
 class ILocalSourceConfiguration(ISourceConfiguration):
-    """Local source configuration adapter interface."""
+    """Local Source configuration adapter interface."""
     columns = schema.List(
         title=_(u'Columns'),
         description=_(u'Specify the list of columns used in this table'),
