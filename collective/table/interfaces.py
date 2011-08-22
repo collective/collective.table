@@ -75,16 +75,16 @@ class ISourceConfiguration(Interface):
     """Base source configuration adapter interface.
 
     Concrete subclasses of this interface, are used to configure their
-	ISource sources.
+    ISource sources.
     """
+    pass
 
+
+class ILocalSourceConfiguration(ISourceConfiguration):
+    """Local source configuration adapter interface."""
     columns = schema.List(
         title=_(u'Columns'),
         description=_(u'Specify the list of columns used in this table'),
         value_type=schema.TextLine(title=_(u'Column')),
         default=[u'Column 1', u'Column 2']
     )
-
-
-class ILocalSourceConfiguration(ISourceConfiguration):
-    pass
