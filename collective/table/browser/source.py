@@ -42,7 +42,7 @@ class BaseSourceConfigurationForm(form.Form):
     @property
     def source(self):
         assert self.sourceName is not None, (
-            'Configuration form should set the sourceName attribute')
+            _('Configuration form should set the sourceName attribute'))
         field = self.context.Schema()[self.fieldName]
         return component.getMultiAdapter(
             (field, self.context), ISource, name=self.sourceName)

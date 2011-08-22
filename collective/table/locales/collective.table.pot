@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2011-01-11 17:31+0000\n"
+"POT-Creation-Date: 2011-08-22 08:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,11 +17,120 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: collective.table\n"
 
-#: collective.table/collective/table/profiles/default/types/Table.xml
+#: ./profiles/default/types/Table.xml
 msgid "A configurable data table."
 msgstr ""
 
-#: collective.table/collective/table/profiles/default/types/Table.xml
+#: ./browser/source.py:19
+msgid "Close"
+msgstr ""
+
+#: ./interfaces.py:87
+msgid "Column"
+msgstr ""
+
+#: ./interfaces.py:85
+msgid "Columns"
+msgstr ""
+
+#: ./field_widget.py:98
+msgid "Complex data table with flexible sources"
+msgstr ""
+
+#: ./interfaces.py:36
+msgid "Configuration View"
+msgstr ""
+
+#: ./browser/source.py:45
+msgid "Configuration form should set the sourceName attribute"
+msgstr ""
+
+#: ./field_widget.py:92
+msgid "Data Table"
+msgstr ""
+
+#: ./interfaces.py:31
+msgid "Description"
+msgstr ""
+
+#: ./interfaces.py:32
+msgid "Human-readable longer description of the data source"
+msgstr ""
+
+#: ./interfaces.py:27
+msgid "Human-readable title of the data source"
+msgstr ""
+
+#: ./field_widget.py:93
+msgid "Renders the complex data table and manage it's configuration"
+msgstr ""
+
+#: ./interfaces.py:86
+msgid "Specify the list of columns used in this table"
+msgstr ""
+
+#: ./interfaces.py:41
+msgid "Supports editing"
+msgstr ""
+
+#: ./interfaces.py:53
+msgid "Supports querying"
+msgstr ""
+
+#: ./interfaces.py:47
+msgid "Supports sorting"
+msgstr ""
+
+#: ./profiles/default/types/Table.xml
 msgid "Table"
+msgstr ""
+
+#: ./interfaces.py:37
+msgid "The name of the view used to configure this source"
+msgstr ""
+
+#: ./interfaces.py:26
+msgid "Title"
+msgstr ""
+
+#: ./interfaces.py:42
+msgid "True if this source supports editing existing                       and adding new records."
+msgstr ""
+
+#: ./interfaces.py:54
+msgid "True if this source supports filtering records                       by specifying a search query."
+msgstr ""
+
+#: ./interfaces.py:48
+msgid "True if this source supports sorting records by                       clicking on columns."
+msgstr ""
+
+#: ./local.py:80
+msgid "click here to enter data"
+msgstr ""
+
+#. Default: "The rows for a local table are stored locally with the                 content item"
+#: ./local.py:19
+msgid "description_localsource"
+msgstr ""
+
+#. Default: "Data Source"
+#: ./browser/templates/table_macros.pt:32
+msgid "label_datasource"
+msgstr ""
+
+#. Default: "Locally stored"
+#: ./local.py:18
+msgid "label_localsource"
+msgstr ""
+
+#. Default: "Data table"
+#: ./table.py:17
+msgid "label_table"
+msgstr ""
+
+#. Default: "Configure local source"
+#: ./browser/local.py:12
+msgid "localsource-configuration"
 msgstr ""
 

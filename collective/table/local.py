@@ -17,8 +17,8 @@ class LocalSource(BaseSource):
 
     title = _(u'label_localsource', default=u'Locally stored')
     description = _(u'description_localsource',
-        default=u'The rows for a local table are stored locally with the '
-                u'content item')
+        default=_('The rows for a local table are stored locally with the '
+                  'content item'))
     configurationView = '@@collective.table.localconfig'
     editable = True
     sortable = False
@@ -77,7 +77,7 @@ class LocalSource(BaseSource):
         row = dict()
         row['DT_RowId'] = len(rows)  # add an incremental id to new row
         for column in columns:
-            row[column['id']] = 'click here to enter data'
+            row[column['id']] = _('click here to enter data')
 
         # save new row
         rows.append(row)

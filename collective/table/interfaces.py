@@ -23,36 +23,36 @@ class ISource(IStorage):
     """
 
     title = schema.TextLine(
-        title=u'Title',
-        description=u'Human-readable title of the data source',
+        title=_(u'Title'),
+        description=_(u'Human-readable title of the data source'),
         required=True)
 
     description = schema.Text(
-        title=u'Description',
-        description=u'Human-readable longer description of the data source',
+        title=_(u'Description'),
+        description=_(u'Human-readable longer description of the data source'),
         required=True)
 
     configurationView = schema.ASCIILine(
-        title=u'Configuration View',
-        description=u'The name of the view used to configure this source',
+        title=_(u'Configuration View'),
+        description=_(u'The name of the view used to configure this source'),
         required=True)
 
     editable = schema.Bool(
-        title=u'Supports editing',
-        description=u'True if this source supports editing existing \
-                      and adding new records.',
+        title=_(u'Supports editing'),
+        description=_(u'True if this source supports editing existing '
+                       'and adding new records.'),
         required=True)
 
     sortable = schema.Bool(
-        title=u'Supports sorting',
-        description=u'True if this source supports sorting records by \
-                      clicking on columns.',
+        title=_(u'Supports sorting'),
+        description=_(u'True if this source supports sorting records by '
+                       'clicking on columns.'),
         required=True)
 
     queryable = schema.Bool(
-        title=u'Supports querying',
-        description=u'True if this source supports filtering records \
-                      by specifying a search query.',
+        title=_(u'Supports querying'),
+        description=_(u'True if this source supports filtering records '
+                       'by specifying a search query.'),
         required=True)
 
     def listColumns():
@@ -62,7 +62,6 @@ class ISource(IStorage):
         titles are unicode strings.
 
         The columns will be displayed in the order they are listed.
-
         """
 
 

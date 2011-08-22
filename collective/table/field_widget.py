@@ -89,10 +89,10 @@ class DataTableField(ObjectField):
 
 
 registerWidget(DataTableWidget,
-    title='Data Table',
-    description='Renders the complex data table and manage it\'s '
-                'configuration',
+    title=_('Data Table'),
+    description=_('Renders the complex data table and manage it\'s '
+                'configuration'),
     used_for=('collective.table.field_widget.DataTableField',)
 )
 registerField(DataTableField,
-    title='Data Table', description='Complex data table with flexible sources')
+    title=_('Data Table'), description=_('Complex data table with flexible sources'))
