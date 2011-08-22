@@ -54,8 +54,8 @@ class BaseSourceConfigurationForm(form.Form):
     sourceName = None
 
     def getConfiguration(self):
-        """Returns a dictionary with the configuration keyed on the form fields.
-        """
+        """Returns a dictionary with the configuration keyed on the form
+        fields."""
 
         raise NotImplementedError()
 
