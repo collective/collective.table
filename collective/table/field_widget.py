@@ -7,6 +7,7 @@ from Products.Archetypes.Registry import registerField
 from Products.Archetypes.Registry import registerWidget
 from Products.Archetypes.Widget import TypesWidget
 from Products.Archetypes.exceptions import ObjectFieldException
+from collective.table import MessageFactory as _
 from collective.table.interfaces import ISource
 from collective.table.interfaces import ITableField
 from persistent.mapping import PersistentMapping
