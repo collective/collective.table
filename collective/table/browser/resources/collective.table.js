@@ -51,7 +51,7 @@ collective.table = (function($) {
 
         table.closest('.dataTables_wrapper').prevAll('.datagrid-delete-row').click( function() {
             var selected = $(self.table.fnGetNodes()).filter('.row_selected'),
-                ids = $.map(selected, function(row) { return row.id; });
+                aIds = $.map(selected, function(row) { return row.id; });
 
             // do a user-blocking ajax request to server to delete rows
             // in data storage
