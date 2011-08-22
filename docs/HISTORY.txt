@@ -6,6 +6,7 @@ Changelog
 
 * Newline was missing in Future.rst. [zupo]
 
+
 1.0 (2011-08-22)
 ----------------
 
