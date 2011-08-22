@@ -56,7 +56,6 @@ class ISource(IStorage):
                       by specifying a search query.',
         required=True)
 
-
     def listColumns():
         """Return a sequence of dicts specifying the columns
 
