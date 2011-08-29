@@ -39,7 +39,8 @@ class DataTableWidget(TypesWidget):
 
         # Extract your own form fields from the request
         changes = config.form_instance.applyChanges()
-        # XXX: Handle changes = None and config.formErrorsMessage being set == ERROR
+        # XXX: Handle changes = None and
+        # config.formErrorsMessage being set == ERROR
 
         return TypesWidget.process_form(self, instance, field, form, **kw)
 
