@@ -35,7 +35,9 @@ class DataTableWidget(TypesWidget):
         configView = field.getSource(instance).configurationView
         config = instance.unrestrictedTraverse(
             '%s/%s' % (configView, field.getName()))
+        form_shadow = form.copy()
         config.form_instance.update()
+        form.update(form_shadow)
 
         # Extract your own form fields from the request
         changes = config.form_instance.applyChanges()
