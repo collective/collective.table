@@ -32,7 +32,7 @@ class TestTable(TableIntegrationTestCase):
         self.assertEquals(table.Title(), "Table Title")
         self.assertEquals(table.Description(), "Table Description")
         self.assertEquals(table.getText(),
-                          "<p>&lt;b&gt;Table&lt;/b&gt; Text</p>")
+                          "<b>Table</b> Text")
 
 
 def test_suite():
