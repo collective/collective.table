@@ -3,7 +3,7 @@ Developer documentation for collective.table
 ============================================
 
 :Project title: collective.table
-:Latest version: 1.1
+:Latest version: 1.1.1
 :Project page: http://pypi.python.org/pypi/collective.table
 :Source: http://github.com/collective/collective.table
 

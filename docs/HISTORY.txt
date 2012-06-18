@@ -3,6 +3,11 @@ Changelog
 
 1.1 (2012-06-18)
 ----------------
+* Bah. 1.1 was a brown bag release.
+
+
+1.1 (2012-06-18)
+----------------
 
 * Restore form values in the request to string after ``processInputs``
   converts them to unicode for ``z3c.form``. [danjacka]
