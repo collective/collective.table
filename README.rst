@@ -5,7 +5,7 @@ Easy storage of tabular data
 collective.table is a replacement for the "store equipment lists, book loans,
 etc. in Excel files and upload to Plone". It's a list of items where members
 can add/edit columns and rows and of course data. By default, collective.table
-stores it's data in the ZODB, however storage is pluggable and it's easy to
+stores its data in the ZODB, however storage is pluggable and it's easy to
 write storage adapters to have data stored in SQL, LDAP, etc.
 
 collective.table is based on `DataTables <http://datatables.net>`_ and

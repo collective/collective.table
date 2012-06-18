@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-version = '1.0.2dev'
+version = '1.1'
 
 setup(name='collective.table',
       version=version,
@@ -21,7 +21,7 @@ setup(name='collective.table',
       keywords='plone table data',
       author='Jarn AS',
       author_email='info@jarn.com',
-      url='http://svn.plone.org/svn/collective/collective.table',
+      url='http://github.com/collective/collective.table',
       license='GPL',
       packages=find_packages(exclude=['ez_setup']),
       namespace_packages=['collective'],
