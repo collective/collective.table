@@ -3,9 +3,9 @@ Developer documentation for collective.table
 ============================================
 
 :Project title: collective.table
-:Latest version: 0.3
+:Latest version: 1.0.1
 :Project page: http://pypi.python.org/pypi/collective.table
-:Source: http://github.com/zupo/collective.table
+:Source: http://github.com/collective/collective.table
 
 """"""""""""""""""""""""""""""""
 
@@ -39,7 +39,7 @@ quick start with `collective.table` is as follows:
 
 .. sourcecode:: bash
 
-   $ git checkout git@github.com:zupo/collective.table.git
+   $ git checkout git@github.com:collective/collective.table.git
    $ cd collective.table/
    $ virtualenv -p python2.6 --no-site-packages ./
    $ bin/python bootstrap.py
