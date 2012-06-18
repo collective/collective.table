@@ -97,6 +97,7 @@ collective.table = (function($) {
                         tableConfig.find(':radio:checked').data('currentConfig', $.param(data));
                         sourceChange();
                         form.closest('.overlay-ajax').overlay().close();
+                        pb.spinner.hide();
                         return false;
                     },
                     config: {
